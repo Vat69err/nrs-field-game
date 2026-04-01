@@ -1,15 +1,20 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// NRS Field Game — BSF Story Data ("In Uniform")
+// NRS Field Game — BSF Story Data
+// "At the Border"
 // ─────────────────────────────────────────────────────────────────────────────
 //
-// Source: Fieldwork notes, Ajnala BSF Battalion, Punjab border, August 2025.
-// Researchers: Ritika, Chandan, Arpita.
-// Topic: Emotional labor and resistance in the Border Security Force.
+// Source material: fieldwork notes from BSF cantonment research, August 2025.
+// All participant names are pseudonyms. Institutional details are real.
 //
-// This game is structurally separate from the entrepreneur game (story-data.js).
-// Engine is shared — loaded via bsf.html instead of index.html.
+// Pseudonym key (internal reference only — do not publish):
+//   Devraj Sir  = Deputy Commander (DD in original notes)
+//   Suresh Sir  = Devraj Sir's batchmate (Ganpat in original notes)
+//   Arjun Sir   = Commander (Amar Sir in original notes)
+//   Rao         = hostile officer (Mishra in original notes)
+//   Pandey      = interview subject, final day (Chaturvedi in original notes)
+//   Ranjit      = junior officer, emotional intelligence scene (Amarjeet)
 //
-// Run  node validate.js story-bsf.js  to check all links.
+// Validate with: node validate.js story-bsf.js
 // ─────────────────────────────────────────────────────────────────────────────
 
 const story = {
@@ -17,340 +22,446 @@ const story = {
   // ── OPENING ──────────────────────────────────────────────────────────────
 
   start: {
-    location: "Day 1 — Ajnala, Punjab Border",
-    text: "You have been granted research access to a BSF battalion — something that took months and does not happen often. Your topic is emotional labor in paramilitary forces: how feeling is managed, suppressed, and performed as professional duty. Two women personnel register you at the gate. An escort leads you through. You have been told interviews have been arranged. You have not been told by whom, or with whom. <em>The research has already begun — but not in the way you planned.</em>",
+    location: "Day 1 — The Cantonment",
+    text: "You have been granted access to a BSF cantonment to study emotional labour among border security personnel. Your access came through an institutional chain you did not initiate. An officer is waiting. Before the first interview begins, you must decide how to enter the room — and who, exactly, you are going to be in it.",
     choices: [
-      { text: "You are taken first to the CO's office. Attend to what the room tells you before he speaks.", next: "formal_entry" },
-      { text: "DD has offered an informal meeting before the official schedule. Go there first.", next: "dd_informal" },
-      { text: "You are directed to the mess to speak with jawans during their meal break.", next: "mess_arrival" },
-      { text: "Alone for a moment, you look at your interview guide again. Something about it feels off.", next: "methodology_doubt" }
+      { text: "He stands when you enter and offers a firm handshake. Sit with the formality.", next: "amar_formal" },
+      { text: "Before anything, look at the poster on the wall — phrases civilians use freely that the personnel cannot.", next: "the_poster" },
+      { text: "Your access was granted by a hierarchy that decided who you would meet. Ask who made that decision.", next: "curated_access" },
+      { text: "Before the first interview begins, decide whether to tell them where you are from.", next: "jnu_question" }
     ]
   },
 
-  // ── BRANCH: FORMAL ENTRY ─────────────────────────────────────────────────
+  // ── BRANCH A: ARJUN SIR (COMMANDER) ─────────────────────────────────────
 
-  formal_entry: {
-    location: "Day 1 — CO's Office",
-    text: "Organized desk, a few trophies, pale walls, religious music playing softly in the background. He stands, offers a firm handshake. When you say the word <em>interview</em> it produces a brief tightening around his eyes. When you say JNU, you watch him pick up his phone and assure whoever is on the other end that your project is not <em>affiliated</em> with the politics. He is warm. He is watching you very carefully. Both things are true at once.",
+  amar_formal: {
+    location: "Day 1 — Commander's Office",
+    text: "The office is minimal — plain walls, few trophies, a thread of religious music in the background. He stands and offers a firm handshake, says 'sir' even though you are younger and unranked. When you mention the research topic — emotional labour — he immediately picks up the phone and tells someone. He wants to be seen as welcoming this. <em>The first thing he does is broadcast your presence.</em>",
     choices: [
-      { text: "Ask about a day in his life. Let him narrate the structure himself.", next: "co_interview" },
-      { text: "Say little. Watch how the room works — who enters, how they wait, where they stand.", next: "poster_wall" }
+      { text: "Follow his openness. Ask about a day in his life.", next: "amar_day_in_life" },
+      { text: "Ask why he told his colleagues immediately.", next: "amar_broadcast" }
     ]
   },
 
-  co_interview: {
-    location: "Day 1 — CO's Office",
-    text: "He tells you that adapting to BSF life comes naturally once you understand the logic of the structure. His juniors described something different — the shock of training, the loss of their previous selves. He says the mental health of his personnel is generally good: welfare schemes, food, ticketing, medical. <em>'Agar suicide hoti hai toh woh mostly family matters ki wajah se hoti hai.'</em> He does not mention the pension scheme. He does not mention Op Sindoor. He does not mention the jawans who did not receive medals.",
+  amar_day_in_life: {
+    location: "Day 1 — Commander's Office",
+    text: "He describes his day: signing leaves, ration demands, taking personnel interviews, phone reports. He mentions apiculture — bee tanks the personnel must carry wherever they go. <em>'It becomes problematic,'</em> he says, composedly. <em>'We already have primary tasks.'</em> He uses the word <em>overcommitment</em> — not overburden. You note this. Overcommitment has a positive connotation. Overburden sounds like a complaint. <em>The word choice is doing work.</em>",
     choices: [
-      { text: "Note the gap between what he says and what you have already heard. Say nothing yet.", next: "the_sher_analogy" },
-      { text: "He has given you the official version. Record it accurately and move on.", next: "end_sanctioned" }
+      { text: "Ask about the word itself — why 'overcommitment' and not 'overburden'?", next: "the_word" },
+      { text: "Ask what he understands to be the BSF's actual mandate now.", next: "mandate_question" }
     ]
   },
 
-  poster_wall: {
-    location: "Day 1 — Corridor",
-    text: "On the wall near the gate: a printed poster listing phrases forbidden on duty. <em>Hume maaloom nahi h. Pehle toh aisa hi hota tha. Mai chutti pe jaa raha hun.</em> I don't know. It used to be like this. I'm going on leave. Each phrase is a civilian habit that the institution has erased. You stand with it for a moment — this is Goffman's re-socialization made literal. The list of selves they were required to leave at the gate on the first day of training.",
+  amar_broadcast: {
+    location: "Day 1 — Commander's Office",
+    text: "He seems surprised by the question, then laughs. <em>'Main transparent hoon.'</em> I am transparent. He frames whistleblowing as a good thing — a chance for the system to improve. He describes the reports system. He says he would want his son in the BSF, though his son has ADHD — he says this without sadness, as a logistical assessment. You notice: he has left no room in the conversation for the things he hasn't mentioned.",
     choices: [
-      { text: "Ask someone about the poster. Follow the thread of what it means on the ground.", next: "leave_interviews" },
-      { text: "You already understand something without asking. Move on before it closes.", next: "explain_civilian" }
+      { text: "Ask what the reports system doesn't capture. Push gently.", next: "dd_office" },
+      { text: "Accept the framing. His optimism is also data.", next: "end_controlled_bsf" }
     ]
   },
 
-  the_sher_analogy: {
-    location: "Day 1 — After the CO's Office",
-    text: "Outside, DD says quietly: <em>'Sher kitna bhi pyaar kare — uske punjon ke nishaan lagte hi hain.'</em> Even a lion's love leaves claw marks. He is not saying the CO is cruel. He is describing the physics of power in a ranked system: a casual question from a superior becomes an interrogation, a suggestion becomes an order, a forgotten promise becomes betrayal. The goal of every junior in the CO's presence, he explains, is not to communicate — it is to survive the interaction without fault.",
+  the_word: {
+    location: "Day 1 — Commander's Office",
+    text: "He pauses. <em>'Overburden sounds like we are complaining.'</em> He says this with a small smile — a calibrated admission. He talks about the BSF being asked to plant trees, run Yoga Days, conduct election duty. <em>'Hum fauji hain — hume seema par rehne do.'</em> We are soldiers, let us stay at the border. The frustration is real but controlled. He expresses it as a structural argument, not a personal grievance. <em>You realize: he knows exactly how to be critical without being critical.</em>",
     choices: [
-      { text: "Ask DD what this means for how truth moves — or doesn't — up the chain.", next: "dd_opening" },
-      { text: "It is a structural observation. Useful. File it and proceed.", next: "end_complicit" }
+      { text: "Ask about the Yoga Day specifically.", next: "yoga_day" },
+      { text: "Ask about the pension scheme — what is actually being promised and to whom.", next: "the_pension" }
+    ]
+  },
+
+  mandate_question: {
+    location: "Day 1 — Commander's Office",
+    text: "<em>'That is the question, isn't it.'</em> He talks about the ambiguity — are they border guards, police, social workers, election officials? The word Suresh Sir will use later: <em>policization.</em> The original mandate was first-line defence. The actual mandate is everything the state needs done near a border. He frames this as adaptability. You hear it as something else. <em>What does it do to a person when the job keeps expanding but the identity doesn't?</em>",
+    choices: [
+      { text: "Let this become the centre of your inquiry.", next: "end_expansive_bsf" },
+      { text: "Ask whether his subordinates feel about this the same way he does.", next: "hierarchy_of_feeling" }
+    ]
+  },
+
+  hierarchy_of_feeling: {
+    location: "Day 1 — Evening",
+    text: "<em>'Unka perspective alag hoga.'</em> Their perspective will be different. He does not say more. That evening, in Devraj Sir's office, you hear Devraj Sir say: <em>'Hum fauji hain, NGO nahi — hume toh agar mauka mile toh 15 August ko sona pasand karenge seema se aakar.'</em> We are soldiers, not an NGO — if given the chance, we'd prefer to sleep on Independence Day after coming back from the border. The distance between <em>their perspective will be different</em> and what that difference actually sounds like is where your study lives.",
+    choices: [
+      { text: "Go to Devraj Sir's office. Hear the unfiltered version.", next: "dd_office" },
+      { text: "Write it down as it is. The gap between ranks is the finding.", next: "end_expansive_bsf" }
+    ]
+  },
+
+  // ── BRANCH B: THE POSTER ─────────────────────────────────────────────────
+
+  the_poster: {
+    location: "Day 1 — Entrance",
+    text: "On the wall as you enter: a list of phrases the personnel are not allowed to say. <em>'Hume maaloom nahi hai.'</em> We don't know. <em>'Pehle toh aisa hi hota tha.'</em> It was always done this way. <em>'Main chutti par jaa raha hoon.'</em> I'm going on leave. Phrases so ordinary that civilians say them without thinking. Here they are marked as failures of responsibility. You stand reading it for longer than feels polite. An officer notices you noticing.",
+    choices: [
+      { text: "When the interview begins, ask about the poster directly.", next: "poster_direct" },
+      { text: "Don't mention it. Carry it in your notebook instead.", next: "poster_silent" }
+    ]
+  },
+
+  poster_direct: {
+    location: "Day 1 — Commander's Office",
+    text: "He looks at the poster, then at you, with something you can't read. <em>'Yeh toh unhe sikhata hai ki zimmedaar kaise bante hain.'</em> It teaches them responsibility. He explains each phrase in terms of discipline and initiative. You write it down. Then you write, in your notebook, separately: he explained the poster exactly the way the poster instructs — with initiative, without admitting uncertainty. <em>You have been inside the institution for eleven minutes.</em>",
+    choices: [
+      { text: "Ask: does he ever wish he could say 'I don't know'?", next: "end_immersive_bsf" },
+      { text: "Ask about one phrase specifically — 'Main chutti par jaa raha hoon.'", next: "chutti_phrase" }
+    ]
+  },
+
+  poster_silent: {
+    location: "Days 1–3 — Your Notebook",
+    text: "You carry the poster in your notebook. Three days later, near the end of fieldwork, Suresh Sir mentions that the most universal coping mechanism is <em>chutti kaatna</em> — cutting leave. Fantasizing about going home. The poster prohibits even saying you are going on leave until it is approved. The phrase they are not allowed to say casually is also their deepest relief. <em>You hadn't planned to connect these things. The field connected them for you.</em>",
+    choices: [
+      { text: "This is a finding no structured interview could have produced.", next: "end_witness_bsf" },
+      { text: "Return to the poster. Ask Suresh Sir about it directly.", next: "end_expansive_bsf" }
+    ]
+  },
+
+  chutti_phrase: {
+    location: "Day 1 — Commander's Office",
+    text: "He is quiet for a moment. Then: <em>'Jab woh chutti par jaate hain, unka sapna pura hota hai.'</em> When they go on leave, their dream is complete. He says it simply, without irony. You think about the rows of personnel outside the CO's office tomorrow — waiting in uniform for two minutes each, to have their leave request assessed, ranked, approved or deferred. The most hopeful phrase is also the most surveilled.",
+    choices: [
+      { text: "Ask to observe the leave interviews the next morning.", next: "leave_interviews" },
+      { text: "Ask: what happens to someone whose leave is denied repeatedly?", next: "end_expansive_bsf" }
     ]
   },
 
   leave_interviews: {
-    location: "Day 2 — Quarter Office",
-    text: "Two rows of personnel in full uniform wait outside — hierarchy ordering the queue, each rank speaking to the one above before reaching the CO. Leave can be denied: medical dues, course dues, prior absences. One personnel emerges from the CO's room visibly upset; his application was rejected. DD looks at him and asks what happened. Then — in the same breath — tells a subordinate: <em>'Koi naa answer de toh mujhe batana.'</em> If anyone doesn't answer the researchers, tell me. The care and the control arrive in the same sentence.",
+    location: "Day 3 — The Courtyard",
+    text: "Two straight rows of personnel in uniform, red turbans, standing outside the CO's office. They will each get two minutes. Leave approved or deferred — medical backlog, courses outstanding, previous leave taken. One comes out of the CO's office and goes directly to Devraj Sir, visibly upset. Devraj Sir looks at the application and says something quiet that changes the man's posture. <em>The formal structure says CO. The actual decision happens in Devraj Sir's office, in the informal space, after.</em>",
     choices: [
-      { text: "Ask DD what he expected to do if someone refused you.", next: "dd_instructs_answers" },
-      { text: "This moment is the data. Let it sit without unpacking it to him.", next: "end_the_gap" }
+      { text: "Ask Devraj Sir later what he said to the man.", next: "end_expansive_bsf" },
+      { text: "Later that day, ask to speak with two of the men who were waiting — the older ones near retirement.", next: "older_si_ranks" }
     ]
   },
 
-  explain_civilian: {
-    location: "Day 1 — Corridor",
-    text: "You explain your research to one of the younger personnel. Emotional labor — the management of feeling as professional duty. He listens. Then: <em>'Toh aap yahan aa ke hume samjhoge?'</em> So you have come here to understand us. It is not hostile. It is genuinely curious. And somewhere in it is the question you will keep turning over: can you understand something you have not lived? You have frameworks for this question. Standing here, the frameworks feel thin.",
+  // ── BRANCH C: CURATED ACCESS ─────────────────────────────────────────────
+
+  curated_access: {
+    location: "Day 1 — Before the First Interview",
+    text: "Your access came through a chain of command. You asked to speak with certain kinds of people. The hierarchy decided which people that meant. Before the interview begins, you ask — carefully — who made that decision. The officer smiles. <em>'Humne socha ki yeh log sabse zyada samajhdar hain.'</em> We thought these people were the most articulate. <em>The institution has already decided what face to show you.</em>",
     choices: [
-      { text: "Push through. Take the question to DD — he has been thinking about it longer than you.", next: "dd_instructs_answers" },
-      { text: "Accept the frame. This inaccessibility is also a finding.", next: "end_complicit" }
+      { text: "Accept it. Even a curated sample reveals what the institution wants to be.", next: "curated_as_data" },
+      { text: "Push back — ask if you can also speak to someone they wouldn't have chosen.", next: "curated_resist" }
     ]
   },
 
-  dd_instructs_answers: {
-    location: "Day 2 — DD's Office",
-    text: "You ask DD about the instruction he gave — if anyone doesn't answer, tell me. He pauses. <em>'Unhe darr nahi hona chahiye.'</em> They shouldn't be afraid. He means it as protection. But you are sitting in a system where getting leave requires a hierarchy of interviews, where silence reads as insubordination, where a senior officer's question cannot go unanswered. The instruction was meant to open doors for you. You are not sure it didn't also close them for someone else.",
+  curated_as_data: {
+    location: "Day 1 — Your Notes",
+    text: "You write: <em>the sample is not representative — it is representative of something else.</em> Who is deemed speakable for the institution. Who embodies the idealized narrative. You are thinking through this when Rao enters the room uninvited, scowling. He was not on the list. <em>Your theory is immediately tested.</em>",
     choices: [
-      { text: "Ask what kind of answer you would receive from someone ordered to answer you.", next: "end_moral_dissonance" },
-      { text: "Let it be. The irony is the finding. Note it without comment.", next: "end_the_gap" }
+      { text: "Stay with the theory. Rao is data too.", next: "mishra_encounter" },
+      { text: "Later, ask for a voice from outside the official list entirely.", next: "khalsa_jawan" }
     ]
   },
 
-  // ── BRANCH: DD INFORMAL ──────────────────────────────────────────────────
-
-  dd_informal: {
-    location: "Day 1 — DD's Office, Morning",
-    text: "You arrive early. DD is on the phone with his wife — parent-teacher meeting, their son's math score, a five on a test. He doesn't lower his voice when you enter. Ganpat is already in the room; he is almost always in this room. You notice the office before the man: no trophies, a designation board, two or three files. The actual work. He asks where you are from. You say JNU. He says he always wanted to study there. He took the entrance exam once, knowing he wouldn't get in. <em>This is how he begins to trust you.</em>",
+  curated_resist: {
+    location: "Day 1 — Negotiation",
+    text: "He looks at you for a long moment. Then calls someone. Twenty minutes later you are taken to the mess, where no interviews were arranged. You find a man eating alone at a corner table, looking at pictures on his phone. He hasn't been briefed. He doesn't know who you are. He notices you are from JNU and begins talking — about Munirka, about parliament, about how no one here talks to him. <em>This is the conversation no one scheduled.</em>",
     choices: [
-      { text: "He mentioned Op Sindoor on the phone. Ask about it.", next: "op_sindoor_medals" },
-      { text: "Ask what he actually wanted to do before the BSF made him what he is.", next: "dd_creativity" }
+      { text: "Stay. This is the most important conversation of your fieldwork.", next: "kerala_man" },
+      { text: "Take notes, but feel the full weight of an unscheduled confession.", next: "end_witness_bsf" }
     ]
   },
 
-  op_sindoor_medals: {
-    location: "Day 1 — DD's Office",
-    text: "He shows you a photograph: two pillars at the Op Sindoor site, names engraved of those who died. One pillar lists army martyrs with the word <em>shaheed</em>. The other lists BSF personnel with rank and number. No word. Ganpat says quietly: <em>'Modiji aakar photo le gaye. Hame kya mila?'</em> Modi came and took photographs. What did we get? Then: the list on the wall of his colleague's office — 'list dekhi, hamne kaam kiya sir, par kahi naam nahi hai.' We worked. Our names are nowhere.",
+  // ── BRANCH D: THE JNU QUESTION ───────────────────────────────────────────
+
+  jnu_question: {
+    location: "Day 1 — Before the First Interview",
+    text: "Your institution is JNU. You know what this means inside a cantonment — Suresh Sir will cite a video about a student leader as fact, then say they don't trust the media. Arjun Sir will reassure someone on the phone that your project is not affiliated with JNU politics. Pandey will give a full interview and then reassess everything he said the moment he learns where you are from. Before the first interview begins, you decide.",
     choices: [
-      { text: "Stay here. Ask what the absence of the word does to a person over time.", next: "dd_shaheed" },
-      { text: "Write it down exactly as it was said. This is what the study is for.", next: "end_shaheed" }
+      { text: "Don't mention JNU unless directly asked.", next: "jnu_silent" },
+      { text: "Bring it up yourself. Let them react to the real thing rather than the rumour.", next: "jnu_direct" }
     ]
   },
 
-  // ── BRANCH: MESS ─────────────────────────────────────────────────────────
-
-  mess_arrival: {
-    location: "Day 2 — The Mess",
-    text: "Pale walls, watery floors. Personnel sit in groups or alone. No women visible — you saw women only at the gate. You sit for the focus group and immediately feel the arranged quality of it: the sense that certain answers have already been decided, that some things will be said and others will not. One man served in Op Sindoor, nineteen years. Another, of different rank, loses interest halfway through and you notice but do not name it. <em>The interview has already been shaped by the room before you asked a question.</em>",
+  jnu_silent: {
+    location: "Days 1–3",
+    text: "For two days you don't mention JNU. The interviews proceed smoothly. On the third day, during the final conversation, Pandey — one of the most open people you have spoken to — learns where you are from and visibly recalibrates. You watch him scan the conversation backward, reassessing what he said. <em>'Maine jo bola...'</em> What I said... He trails off. He doesn't finish. <em>Neither do you. You wonder what your silence cost him.</em>",
     choices: [
-      { text: "After the session, one man from Kerala stays at his table. Go sit with him.", next: "kerala_guy" },
-      { text: "Work with what the focus group gave you. Follow the official thread.", next: "focus_group" }
+      { text: "Ask: does knowing change what he told you?", next: "end_expansive_bsf" },
+      { text: "Let the sentence stay unfinished. Write it exactly as it was.", next: "end_annotation_bsf" }
     ]
   },
 
-  kerala_guy: {
-    location: "Day 2 — The Mess",
-    text: "He was posted at Parliament until 2017. He shows you photographs on his phone — the building, the uniform, the respect. <em>'Wahan par itna respect tha mera — log pair chute the.'</em> People touched his feet. He keeps scrolling. His body is restless, head moving slowly in a no. When you ask how things are here his face changes: <em>'Koi baat karne wala nahi hai.'</em> Nobody to talk to. He gives his banana to your colleague. Suddenly: <em>'Meri beti se baat karoge? Ruko — main karaata hun.'</em>",
+  jnu_direct: {
+    location: "Day 1 — First Meeting",
+    text: "You say it early: JNU. Suresh Sir's eyebrows move. Devraj Sir looks at you carefully. Then: a long conversation about politics, about both wings, about algorithms and ideology. They perform their own neutrality — <em>'dono taraf ko samajhna chahiye'</em> — while testing whether you will perform yours. By being direct about where you came from, you gave them something to push against. The interviews that follow are more contentious. They are also more honest. <em>You traded smoothness for friction and got more.</em>",
     choices: [
-      { text: "Stay. Let him show you the pictures. Let him call his daughter.", next: "kerala_daughter" },
-      { text: "You cannot be what he needs right now. But note what that need tells you.", next: "end_catharsis_bsf" }
+      { text: "The friction is the finding. Trust it.", next: "end_expansive_bsf" },
+      { text: "Ask whether they would have agreed to this research if they had known from the start.", next: "end_reflexive_bsf" }
     ]
   },
 
-  kerala_daughter: {
-    location: "Day 2 — The Mess",
-    text: "She speaks briefly on the phone. He watches your face the whole time, looking for confirmation that she is real to you — that his life outside this canteen exists and matters. The Blue Shirt Guy comes and sits beside your colleague, watching. The Kerala man doesn't stop. He keeps the conversation going past its natural end. The isolation here is not only geographic. It is the isolation of being perceived only as a rank and a posting, never as the father of a daughter who studied in Munirka.",
-    choices: [
-      { text: "Stay until he is finished. The research can wait.", next: "end_catharsis_bsf" },
-      { text: "Ask what made Parliament different — follow the thread of recognition.", next: "end_inversion" }
-    ]
-  },
-
-  focus_group: {
-    location: "Day 2 — The Mess",
-    text: "The answers arrive quickly and identically: <em>fauji hai, bulaya hai, toh jaana padega.</em> Soldier, called, must go. Family stress? <em>'Family walon ko sab theek hai bolna padta hai — unhe thodi hi bata sakte hain.'</em> You have to tell the family everything is fine. You can't actually tell them. These are not evasions — they are settled conclusions of people who have thought about this for years and arrived at acceptance. The hard part is that acceptance is also a finding.",
-    choices: [
-      { text: "Press deeper on the family line. Something lives underneath the acceptance.", next: "family_stress" },
-      { text: "Note the answers exactly as given. The official version is part of the data.", next: "mechanized_answers" }
-    ]
-  },
-
-  family_stress: {
-    location: "Day 2 — The Mess",
-    text: "One of them says: <em>'Family se zyada BSF hamara ghar hai.'</em> The BSF is more home than home. Another: <em>'Ghar se aane ke do-teen din baad aati hai bachon ki yaad — phir bhool jaate hain.'</em> The memory of children fades after two or three days. You hold the sentence. It is not callousness — it is survival. A man stationed at the border who cannot forget his children cannot do the job. The forgetting is a professional requirement that nobody in the rule book names.",
-    choices: [
-      { text: "Ask about the buddy system. Is it filling what home cannot?", next: "buddy_surveillance" },
-      { text: "Let the sentence end the interview. It has said everything.", next: "end_the_gap" }
-    ]
-  },
-
-  buddy_surveillance: {
-    location: "Day 2 — Corridor",
-    text: "The buddy system: every personnel assigned to another, care and accountability built into the pairing. But DD mentioned, matter-of-factly, that a buddy who spots distress reports it upward. You think about this. The system designed to hold someone together is also the system that monitors them. The buddy is a caregiver and a surveillance node simultaneously. Nobody uses either of those words. It is simply understood. <em>The care and control duality is built into the friendship itself.</em>",
-    choices: [
-      { text: "This is the structure made visible. It is the study's most important single finding.", next: "end_moral_dissonance" },
-      { text: "Naming it aloud in the field could close access. Record it. Move on.", next: "end_complicit" }
-    ]
-  },
-
-  mechanized_answers: {
-    location: "Day 2 — Reviewing Notes",
-    text: "Transcribing the focus group, the answers read like a report someone else wrote. Identical phrases across different people. The youngest in the group said he goes to sleep immediately after returning from duty — <em>'Sochne ka time hi nahi milta.'</em> No time to think. At first this sounds like a coping mechanism. Then it sounds like the absence of one. You are not sure which reading is more honest. DD mentioned Yoga Day earlier. Something about it is still sitting with you.",
-    choices: [
-      { text: "Go to DD and ask him to tell the Yoga Day story in full.", next: "yoga_day_inversion" },
-      { text: "The data is clean. The methodology worked. Proceed.", next: "end_sanctioned" }
-    ]
-  },
-
-  yoga_day_inversion: {
-    location: "Day 2 — DD's Office",
-    text: "DD tells it with a tired laugh: Yoga Day, June 21st. The event designed for mental health. At 2am he and his team were going house to house waking civilians to bring them to the event — because the photographs needed to show civilian participation. <em>'Jo activity stress khatam karne ke liye hoti hai, woh bhi hamare liye stressful ho gayi.'</em> The activity designed to relieve stress had become, for them, a source of it. Performing wellness for an audience that was also, separately, being performed at.",
-    choices: [
-      { text: "Ask what they were supposed to feel during the yoga. Document the inversion exactly.", next: "end_rupture" },
-      { text: "This is where critique and empathy must coexist. Hold both without resolving them.", next: "end_moral_dissonance" }
-    ]
-  },
-
-  // ── BRANCH: METHODOLOGY DOUBT ────────────────────────────────────────────
-
-  methodology_doubt: {
-    location: "Day 1 — Before Entry",
-    text: "You look at your interview guide. Structured questions on emotional management, coping strategies, workplace relationships. You wrote them in an office far from here. The institution you are entering has controlled your access, selected your interviewees, and escorted you through a gate where your name was registered by personnel who were not asked if they wanted you here. The sample is curated. The setting is staged. You knew this intellectually. <em>You are only now feeling what it means.</em>",
-    choices: [
-      { text: "Enter knowing the curated sample is itself data — evidence of how the institution represents itself.", next: "mishra_encounter" },
-      { text: "Explain your methodology honestly to the first person you meet. See what happens.", next: "explain_civilian" }
-    ]
-  },
+  // ── SHARED: RAO ──────────────────────────────────────────────────────────
 
   mishra_encounter: {
-    location: "Day 1 — Corridor",
-    text: "He enters and the register shifts immediately: <em>'Kaun hai yeh log. Kya kar rahe hain. Emotions samajhne ke liye wardi pehenni padti hai. Civilians ko kya samajh aayega. Yeh kya faaltu bacho jaisa sawal lekar aaye hain.'</em> Who are these people. Wear the uniform if you want to understand emotions. What would civilians know. Your questions are childish. He leaves within minutes. You are left with the shape of his contempt: precise, fast, and — underneath — possibly the most honest thing said to you today.",
+    location: "Day 2 — A Different Office",
+    text: "He enters and his tone is immediate: <em>'Kon hai yeh log. Kya kar rahe hain. Emotions samajhne ke liye wardi pehanni padti hai.'</em> Who are these people. What are they doing. You have to wear the uniform to understand emotions. He dismisses your questions as children's questions. He speaks from the door, not entering fully, as if reserving the right to leave. Three days of fieldwork notes suddenly feel very thin. <em>The question is what to do with a conversation that refuses to be a conversation.</em>",
     choices: [
-      { text: "Reframe the encounter. This was not a failed interview — it was an interview about something else.", next: "rupture_as_data" },
-      { text: "He was right. You cannot fully understand this from outside. That is also a finding.", next: "end_civilian" }
+      { text: "Write it down exactly as it happened. This is data on institutional boundary-policing.", next: "mishra_as_data" },
+      { text: "Stay in the room. Ask: what would be a worthy question?", next: "mishra_worthy" }
     ]
   },
 
-  rupture_as_data: {
-    location: "Day 1 — After the Encounter",
-    text: "You sit with what just happened. Mishra's hostility named the very thing your research is about: the belief that civilian understanding is structurally impossible, that knowledge of this life requires living it. His dismissal is evidence of how the institution defends itself from outside inquiry. He policed the boundary between the knowable and the unknowable, between the uniform and the civilian. <em>The rupture is not a failure of methodology. The rupture is the methodology working perfectly on its own subject.</em>",
+  mishra_as_data: {
+    location: "Day 2 — Your Notes",
+    text: "You write: he used the uniform as an epistemological boundary. The question <em>'emotions samajhne ke liye wardi pehanni padti hai'</em> is not hostility — it is a claim about who gets to know what about whom. The illegitimacy of civilian inquiry into institutional interiority. About the 'culture of suspicion' Borrelli describes in Swedish border police — adapted here, hardened, made visible through a single sentence. <em>You came to study emotional labour. You have just witnessed it in its most defensive form.</em>",
     choices: [
-      { text: "Write it as the first finding. The hostility is the data.", next: "end_rupture" },
-      { text: "Ask what it means that you understand this — and could not have said it to his face.", next: "end_moral_dissonance" }
+      { text: "Let this reframe the entire study.", next: "end_expansive_bsf" },
+      { text: "Ask yourself: at what level can you be critical without losing access?", next: "end_critical_limit" }
     ]
   },
 
-  // ── SHARED SCENES ────────────────────────────────────────────────────────
-
-  dd_opening: {
-    location: "Day 1 — DD's Office",
-    text: "DD's office is different from the CO's. No trophies. A designation board. A few files. He talks openly — more than you expected. He talks about managing the battalion, about counselling distressed personnel by inventing stories they can hold onto: <em>'Main unhe aisi baatein bata deta hoon jo maine sooch ke banaayi hain. Fark nahi padta — agar unhe sukoon mile toh.'</em> Fabricated comfort. What matters is they feel less alone. You notice he is also, right now, managing your impression of him.",
+  mishra_worthy: {
+    location: "Day 2 — A Different Office",
+    text: "He pauses. The question surprises him. Then: <em>'Pooch — agar aankhon mein dekhke sun sakti ho toh.'</em> Ask — if you can look me in the eye and really listen. He sits down. He talks for forty minutes. About loneliness, about how mobile phones are his only friend here, about the frustration of having the same rank as the doctor but different standing, about how making genuine friends in this environment is genuinely hard. <em>What you almost missed because of his first sentence is everything.</em>",
     choices: [
-      { text: "Follow the thread about recognition — Op Sindoor, the medals, the army comparison.", next: "dd_army_comparison" },
-      { text: "Ask what he actually wants. Not for the force. For himself.", next: "dd_creativity" }
+      { text: "Ask what it would mean for a civilian to actually understand.", next: "end_immersive_bsf" },
+      { text: "Ask: does he think anyone inside the force understands either?", next: "end_witness_bsf" }
     ]
   },
 
-  dd_army_comparison: {
-    location: "Day 1 — DD's Office",
-    text: "He and Ganpat come alive on this. BSF led the pathways in Op Sindoor — they were there first, they navigated for the army. And when the rewards came — medals, names on pillars, national mourning — BSF was absent. DD says it plainly: <em>'Army wale shaheed hote hain. BSF wale sirf dead hote hain.'</em> Army personnel die as martyrs. BSF personnel just die. No public feeling-rule assigned. No official grief. Their families mourn in private. Ganpat shows you the pillar photograph on his phone. The absence of names.",
+  // ── SHARED: DEVRAJ SIR'S OFFICE ──────────────────────────────────────────
+
+  dd_office: {
+    location: "Day 2 — Devraj Sir's Office",
+    text: "Devraj Sir's office is different from Arjun Sir's — no trophies, just a designation board, a penstand, two files. But: Suresh Sir is already here. He is almost always here when you visit. They are not assigned to the same space. Suresh Sir simply gravitates to it. Devraj Sir is on the phone with his wife when you arrive. His son got a 5 on a math test. His wife is embarrassed. He sets the phone down with a weariness that has nothing to do with the score. <em>This is the first unguarded thing you have seen.</em>",
     choices: [
-      { text: "Stay with this. Ask what it does to a person to be denied that word over a career.", next: "dd_shaheed" },
-      { text: "Ask about the pension — how the state broke the other contract as well.", next: "pension_betrayal" }
+      { text: "Ask about the phone call. He brought it into the room.", next: "dd_son" },
+      { text: "Wait. Ask to see what he reads. There are books on the desk.", next: "dd_ganpat_bond" }
     ]
   },
 
-  dd_shaheed: {
-    location: "Day 1 — DD's Office",
-    text: "<em>Shaheed</em> is not only a word, DD says. It is a feeling-rule — when the state uses it, it instructs the public how to grieve, whose death belongs to everyone. BSF deaths are not assigned a feeling-rule. Their sacrifice is privatised and de-legitimised by the very state they served. He says this without shouting. That restraint is its own form of emotional labor — the performance of composure in the face of something that warrants rage. It is the most controlled anger you have heard in three days.",
+  dd_son: {
+    location: "Day 2 — Devraj Sir's Office",
+    text: "He sets the phone down and says: <em>'Yeh generation ko samajh nahi aata.'</em> This generation doesn't understand. Suresh Sir disagrees gently: <em>'Number ko izzat se kyun jodna.'</em> Why attach your worth to marks. Devraj Sir laughs. Two men who have spent years inside a system that runs entirely on ranks and numbers, quietly telling each other that marks don't matter. <em>The institution is still in the room. But for a moment it is not in charge.</em>",
     choices: [
-      { text: "Write it exactly as he said it. This is what the study is for.", next: "end_shaheed" },
-      { text: "Ask what keeps someone committed to an institution that has decided not to mourn them.", next: "end_broken_contract" }
-    ]
-  },
-
-  pension_betrayal: {
-    location: "Day 1 — DD's Office",
-    text: "Ganpat: <em>'NPS ka zikr na karna aur sirf UPS ke fayde batana — yeh toh hamare jawaanon ke saath dhoka hai.'</em> Don't mention NPS, just list UPS benefits — that is deception of our jawans. The old pension was the social contract: give us your youth, your family life, your safety — we guarantee your dignity afterward. NPS is market-dependent. It shifts the risk onto the people least able to bear it. He says this with the quiet anger of someone who has been deciding whether to say it for years.",
-    choices: [
-      { text: "Ask who they can actually tell this to — who has the power to change it.", next: "end_broken_contract" },
-      { text: "Structural critique is outside your research scope. Note it and move on.", next: "end_complicit" }
+      { text: "Ask Devraj Sir about the quote in his annotated book.", next: "dd_creativity" },
+      { text: "Ask about the shaheed photograph on his phone.", next: "shaheed_moment" }
     ]
   },
 
   dd_creativity: {
-    location: "Day 2 — End of Last Session",
-    text: "Near the end of your final day, Ganpat arrives with annotated books — underlined, dog-eared, with sketches in the margins: a hammer breaking a stone labelled 'talent,' quotes about saying no. DD asks him to show you. Then shows you something from his own notebook: a quote he has written to himself. <em>'I want a job where I can show my creativity.'</em> He laughs when you read it aloud. The laugh is mixed with something that has not been acted on. Yesterday he told you: <em>fauz mein ghode ko liya jaata hai aur gadha banaaya jaata hai.</em> He wrote the opposite in his private pages.",
+    location: "Day 2 — Devraj Sir's Office",
+    text: "He goes out and comes back with an annotated book — underlines, sketches, a quote in the margin: <em>'I want a job where I can show my creativity.'</em> He shows you with a laugh that is not only a laugh. His own training used this phrase: <em>'ghode ko liya jaata hai aur gadha banaya jaata hai'</em> — you bring in a horse and make it a donkey, because you don't need thinking, only obedience. The quote sits between you like a small act of confession. <em>You write it down exactly as it was.</em>",
     choices: [
-      { text: "Ask about the books. What does it mean to keep annotating when nobody asks you to?", next: "ganpat_books" },
-      { text: "The quote is the finding. Everything else has been context for this moment.", next: "end_inversion" }
+      { text: "Ask when he wrote it — what moment made him write that.", next: "end_immersive_bsf" },
+      { text: "Ask what creativity would look like in this job if it were allowed.", next: "end_expansive_bsf" }
     ]
   },
 
-  ganpat_books: {
-    location: "Day 2 — DD's Office",
-    text: "Ganpat's book has a sketch of a hammer breaking a stone. Quotes about limits. He tells you about the day he was overwhelmed — too much work, alone at the post, a colleague found him and held him as he held on. A hospital visit. He says it matter-of-factly. At the end of your last session, DD says: <em>'Hume aapse milkar bahot achha laga. Finally humne kisi ko bataya ki kya ho raha hai hamare saath.'</em> Finally we told someone what is happening to us. You were not expecting to be that person.",
+  shaheed_moment: {
+    location: "Day 2 — Devraj Sir's Office",
+    text: "He shows you a picture on his phone — a pillar with two columns of names. Army personnel killed in Operation Sindoor: <em>Shaheed.</em> BSF personnel killed in the same operation: no word beside those names. <em>'Jab army wala marta hai, shaheed hota hai. Jab BSF wala marta hai, woh bas marta hai.'</em> When an army soldier dies, he is a martyr. When a BSF soldier dies, he just dies. He says it without rage. <em>The absence of rage is what stays with you.</em>",
     choices: [
-      { text: "Let this be the ending. You became the space they had no other way to fill.", next: "end_catharsis_bsf" },
-      { text: "Ask: who else should be listening to this — and why aren't they?", next: "end_moral_dissonance" }
+      { text: "Ask what he wants — the word, the compensation, or something else.", next: "end_testimony_bsf" },
+      { text: "Ask about his grandmother. He mentioned her once, briefly, at the start.", next: "nani_during_op" }
+    ]
+  },
+
+  dd_ganpat_bond: {
+    location: "Day 2 — Devraj Sir's Office",
+    text: "You ask about Suresh Sir — he is here every time. Devraj Sir laughs. The explanation is practical: batchmates, same rank. But then the sher analogy: <em>'Sher kitna bhi pyaar karle, uska pyaar bhi panje ke ghao ki tarah chubhta hai.'</em> Even the lion's love leaves claw marks. He says it about the CO. But then you notice: Suresh Sir doesn't leave until Devraj Sir signals. When the CO himself gives Suresh Sir a direct order to go, Suresh Sir waits for Devraj Sir's look. <em>You are watching hierarchy from all three levels simultaneously.</em>",
+    choices: [
+      { text: "Ask about the CO — what is it like to be afraid of someone who means well?", next: "sher_question" },
+      { text: "Ask about the time Suresh Sir nearly broke. He has hinted at it.", next: "suresh_breakdown" }
+    ]
+  },
+
+  sher_question: {
+    location: "Day 2 — Devraj Sir's Office",
+    text: "Devraj Sir considers this for a long time. <em>'Aap sahi bol rahe ho.'</em> You are right. He acknowledges the fear without calling it fear — he calls it caution, respect, awareness of rank. But then: <em>'Agar hum apne superior se itna darte hain, toh hum apne juniors ko kehte kaise hain ki darr mat?'</em> If we are this afraid of our superior, how do we tell our juniors not to be afraid? He has asked himself this before. He doesn't have an answer. <em>Neither do you.</em>",
+    choices: [
+      { text: "This is the structural heart of it. Follow it all the way.", next: "end_expansive_bsf" },
+      { text: "Ask: has he ever chosen differently — acted against that fear, even once?", next: "end_moral_choice" }
+    ]
+  },
+
+  // ── NEW: SURESH SIR'S BREAKDOWN ──────────────────────────────────────────
+
+  suresh_breakdown: {
+    location: "Day 3 — Devraj Sir's Office",
+    text: "Suresh Sir tells you about the time he nearly broke. Work had been piling — more than he could carry — and one day a constable found him standing and looking wrong. He hugged him so tightly that the constable called for help and they took him to the hospital. He tells you this matter-of-factly, the way you report something that happened to someone else. Later that same week, a senior officer was going to visit with relatives. Suresh Sir was stretched. He prepared for the visit. The senior cancelled at the last minute. <em>'Main kya karta? Baith gaya.'</em> What could I do? I sat down. <em>He says this as if sitting down was the only rational response. You think: maybe it was.</em>",
+    choices: [
+      { text: "Ask: how does he keep going after moments like that?", next: "end_immersive_bsf" },
+      { text: "Ask about the constable who found him — what the buddy system is when it actually works.", next: "buddy_system" }
+    ]
+  },
+
+  buddy_system: {
+    location: "Day 3 — Morning",
+    text: "The buddy system assigns one person to each jawan — a peer, theoretically there for emotional support. The administration calls it welfare. The jawans call it: someone who always knows where you are. The buddy can report you for mood changes that suggest instability. He can also be the only person who notices you haven't eaten in two days. <em>'Care aur control — ek hi cheez hai yahan.'</em> Care and control are the same thing here. He says this without bitterness, as a structural observation. <em>You think about it for the rest of the day.</em>",
+    choices: [
+      { text: "Ask: does having a buddy actually help?", next: "end_expansive_bsf" },
+      { text: "Ask: what happens when the buddy files a report on you?", next: "end_critical_limit" }
+    ]
+  },
+
+  // ── NEW: THE PENSION ─────────────────────────────────────────────────────
+
+  the_pension: {
+    location: "Day 2 — Devraj Sir's Office",
+    text: "Suresh Sir leans forward. <em>'NPS ka zikr mat karna — sirf UPS ke fayde batana... yeh toh hamare jawaano ke saath dhokha hai.'</em> Don't mention the new scheme to them — only tell them about the old pension's benefits... this is a betrayal of our jawans. The contract is simple: offer your youth, your safety, perhaps your life. In return, the state guarantees dignity in old age. The Old Pension Scheme was that guarantee. The National Pension Scheme — market-dependent, uncertain — is the state rewriting the contract after the work has been done. <em>He is not raising his voice. He has carried this specific grievance for a long time and has learned to hold it precisely.</em>",
+    choices: [
+      { text: "Ask: do the younger jawans understand what they actually signed up for?", next: "end_expansive_bsf" },
+      { text: "Ask: has anyone taken this further — to court, to parliament?", next: "end_testimony_bsf" }
+    ]
+  },
+
+  // ── NEW: OLDER SI RANKS ──────────────────────────────────────────────────
+
+  older_si_ranks: {
+    location: "Day 3 — Interview Room",
+    text: "Two Sub-Inspector ranks, both within two years of retirement. Before you ask about their children joining the force, one of them says it: <em>'Bilkul nahi.'</em> Absolutely not. No elaboration. The other agrees without pause. They joined in 1987 and 1989 — harder training, longer duty hours, no shelter at some border posts, personnel standing through entire shifts in rain. They say the younger generation lacks patience. But when you ask directly — would you want your child to live what you lived — the answer comes without hesitation. <em>The question reveals more than any answer to it.</em>",
+    choices: [
+      { text: "Ask what they would have done differently if they'd known.", next: "end_immersive_bsf" },
+      { text: "Ask what keeps them here, after all of it.", next: "end_expansive_bsf" }
+    ]
+  },
+
+  // ── NEW: NANI DURING SINDOOR ─────────────────────────────────────────────
+
+  nani_during_op: {
+    location: "Day 3 — Evening",
+    text: "At the end of the day, sitting longer than the interview required, Devraj Sir mentions his grandmother. She died during Operation Sindoor. He did not go. The duty held him at the border and he chose the duty — or the duty chose for him, the line between these two being what you have been trying to understand for three days. He tells you this not as a confession but as a data point in the argument he has been building: about what the word <em>shaheed</em> costs the people it is not applied to. <em>'Woh gaye toh army ne khoya. Main nahi gaya toh BSF ne... kya khoya?'</em> When army personnel fall, they are named as a loss. When I didn't go — what did the BSF name?",
+    choices: [
+      { text: "Say nothing. This question has no answer your framework can hold.", next: "end_witness_bsf" },
+      { text: "Ask: does he regret it?", next: "end_immersive_bsf" }
+    ]
+  },
+
+  // ── NEW: OUTSPOKEN YOUNG JAWAN ───────────────────────────────────────────
+
+  khalsa_jawan: {
+    location: "Day 3 — Afternoon",
+    text: "He is the youngest jawan you speak to and the most outspoken. He describes officers taking phone calls while personnel wait at the door. The English-speaking jawan cut off in the debate competition. Posting in a northeastern state for a year — nothing familiar in the food, nothing from home for months, a cultural dislocation nobody asked about. He runs a side business while in service. He is not alone in this. <em>'NPS se agar recruit hua hai toh sochega hi — bhavishy secure karna padega na.'</em> If you were recruited under the new pension scheme, of course you'll think about securing your future. The scheme doesn't, so they do. <em>You think: this is not corruption. This is adaptation.</em>",
+    choices: [
+      { text: "Ask whether he wants his children in the BSF.", next: "end_expansive_bsf" },
+      { text: "Ask about the side business — what it means to innovate inside a system that runs on obedience.", next: "end_moral_choice" }
+    ]
+  },
+
+  // ── YOGA DAY ─────────────────────────────────────────────────────────────
+
+  yoga_day: {
+    location: "Day 3 — Morning",
+    text: "He tells you: on Yoga Day — an activity designed for stress relief — the personnel were woken at 2am to bring civilians for photographs. The image of the unit being wellness-compliant required the personnel to perform wellness while being actively stressed. <em>'Stress release karne wali activity bhi hamare liye stressful ho gayi.'</em> The inversion is exact. You write it down. Then you notice: he said this without audible anger. <em>The calibration of that absence is its own kind of data.</em>",
+    choices: [
+      { text: "Ask: where does the anger go?", next: "end_immersive_bsf" },
+      { text: "Ask about the cricket team — the instruction to lose deliberately.", next: "deliberate_loss" }
+    ]
+  },
+
+  deliberate_loss: {
+    location: "Day 3 — Devraj Sir's Office",
+    text: "Devraj Sir explains how he tells the cricket team to lose in the second round — deliberately — so that the selected players don't get transferred to a wider competition. If they win, they leave the battalion. Thinning of personnel at the border is critical. An instruction to lose a game in order to keep soldiers where the border needs them. <em>It is the most pragmatic thing you have heard in three days. It is also one of the saddest.</em> You don't know yet which it is more of.",
+    choices: [
+      { text: "Ask if the players know why they are being told to lose.", next: "end_expansive_bsf" },
+      { text: "Write it down without comment. The act is its own analysis.", next: "end_witness_bsf" }
+    ]
+  },
+
+  // ── THE KERALA MAN ───────────────────────────────────────────────────────
+
+  kerala_man: {
+    location: "Day 2 — The Mess",
+    text: "He shows you pictures on his phone: the parliament building where he worked until 2017. <em>'Wahan par itna izzat tha mera. Log pair chute the.'</em> People touched my feet. His body is restless. He is shaking his head in a continuous slow no while talking about being here. There is no one to talk to. Then: <em>'Meri beti se baat karoge? Ruko, main karaata hoon.'</em> Will you talk to my daughter? He has been sitting with you for twenty minutes and is already offering you his most valued connection. <em>You understand: you are the first person who has asked him how he is in a very long time.</em>",
+    choices: [
+      { text: "Say yes. Talk to his daughter. Be fully present for this.", next: "end_solidarity_bsf" },
+      { text: "Stay with him. Ask what the parliament posting gave him that this doesn't.", next: "kerala_before" }
+    ]
+  },
+
+  kerala_before: {
+    location: "Day 2 — The Mess",
+    text: "Visibility, he says — though not in that word. He says: people knew him. He was part of something the whole country watched. Here he is part of something the whole country confuses with the army. <em>'Log Instagram pe BSF ki photo lagate hain aur likha hota hai — Army.'</em> People post BSF photos and write: Army. He says this without irony. It is simply true. The mess has emptied. You notice the blue-shirt officer has come to sit near your colleague and is watching. <em>A private conversation has become a surveilled one.</em>",
+    choices: [
+      { text: "Continue anyway. Being observed is also data.", next: "end_witness_bsf" },
+      { text: "Ask him to walk you somewhere else. Give him more space than this room offers.", next: "end_expansive_bsf" }
     ]
   },
 
   // ── ENDINGS ──────────────────────────────────────────────────────────────
 
-  end_sanctioned: {
+  end_expansive_bsf: {
     ending: true,
-    type: "Ending — The Official Version",
-    title: "You produced what the institution wanted.",
-    body: "Your access remained intact. The CO approved of the framing. The paper will be received well. At a debrief, someone asks whether the findings surprised you. You say yes, because the protocol requires it. On the train back you think about Yoga Day — the event designed to relieve stress becoming, for the personnel, a source of it. You did not put that in the paper. The sanctioned version is not a lie. It is a selection.",
-    note: '"The sanctioned version is not a lie. It is a selection. The question is what was cut, and whose decision that was."'
+    type: "Ending — The Open Field",
+    title: "You let the cantonment reshape your questions.",
+    body: "Your interview guide is in your bag, annotated beyond recognition. You came to study emotional labour as a defined concept. You found: a man who writes 'I want a job where I can show my creativity' in the margin of a book he keeps in his quarter. A poster that prohibits saying 'I don't know.' A photograph of names — two columns, two different words for the same death. Your paper will be wider and more uncomfortable than your proposal. That is exactly right.",
+    note: '"The institution is most visible in what it prohibits."'
   },
 
-  end_the_gap: {
+  end_immersive_bsf: {
     ending: true,
-    type: "Ending — Two Minutes Before the Escort",
-    title: "What was said between the scheduled moments.",
-    body: "There were moments outside the formal interviews — in corridors, at the mess table, on the walk to the quarter office — when something was said that could not have been said inside a room. The two minutes before the escort arrived. Ganpat's comment about NPS as he was leaving. The Kerala man calling his daughter. These are not in your transcript. They are what the transcript was built to approach but could not hold. You will spend a long time deciding what to do with them.",
-    note: '"The most important data is always what was said sideways — between the official moments, in the gaps the schedule did not account for."'
+    type: "Ending — Deep Hanging Out",
+    title: "You stayed long enough to stop being a visitor.",
+    body: "By the fourth day, Devraj Sir was asking you to look at Ranjit's eyes — 'soya nahi hai yeh' — as embodied evidence. Suresh Sir was showing you his annotated books. The man from Kerala called his daughter from the mess table and held the phone toward you. You were inside something that does not usually let civilians inside. Your notes are full of what you observed. Your findings are full of what you were told. The gap between those two things is your paper.",
+    note: '"Access is not neutrality. But it is the beginning of something."'
   },
 
-  end_complicit: {
+  end_witness_bsf: {
     ending: true,
-    type: "Ending — Complicity",
-    title: "You wrote what was safe to write.",
-    body: "You maintained access. The paper is carefully framed, appropriately hedged, likely to be cited. You left out the pension conversation, the pillar photograph, DD's instruction to subordinates to answer you. Too sensitive, too institutional, too likely to close doors for the researcher who comes next. You told yourself that was the ethical calculation. On some days you believe it.",
-    note: '"The researcher who protects access at all costs will eventually find they are protecting the institution instead."'
+    type: "Ending — What You Cannot Cite",
+    title: "The most important data came from conversations no one scheduled.",
+    body: "The leave interview courtyard. The man from Kerala in the mess. The annotated book. The laugh that wasn't only a laugh. The conversation with Rao that almost didn't happen. None of these were in your interview guide. All of them are in your field notes, attributed to no one, recorded in a register that qualitative methods has a name for but peer review has limited patience with. You will find the language. Some of it will survive the editing process.",
+    note: '"Deep hanging out produces data that structured interviews cannot. It also produces responsibilities that structured interviews do not."'
   },
 
-  end_rupture: {
+  end_critical_limit: {
     ending: true,
-    type: "Ending — The Rupture",
-    title: "The hostile interview was the most honest one.",
-    body: "Mishra told you in four sentences what the cooperative interviews took three days to approach: that your presence was an act of interpretation, that the uniform is epistemological, that to study feeling from outside feeling is a structural contradiction. He was not wrong. Your most productive analysis came from sitting with his contempt rather than defending yourself against it. The rupture was not a methodological failure. The rupture was the methodology working correctly on its own subject.",
-    note: '"Moments of hostility in the field are not obstacles to be managed. They are the institution speaking without its managed voice."'
+    type: "Ending — At What Level Can You Be Critical",
+    title: "You found the invisible boundary and stopped just before it.",
+    body: "Your supervisor will ask: how critical were you? You will say: critical enough. What you will not say: there was a moment in every interview when you felt the boundary of institutional tolerance — when a follow-up question would have terminated access and perhaps something more. You chose access over critique, or critique over access, depending on the interview. You kept notes on both choices. Your methodology section will be the most honest part of the paper.",
+    note: '"What might still remain unsaid haunts me more than what was said."'
   },
 
-  end_catharsis_bsf: {
+  end_controlled_bsf: {
     ending: true,
-    type: "Ending — The Catharsis",
-    title: "You became the space they had no other way to fill.",
-    body: "At the end of the last session DD said: 'Finally humne kisi ko bataya ki kya ho raha hai hamare saath.' Finally we told someone what is happening to us. You had not expected to be that person. Your research was designed to produce data. What it also produced was a room — a few days — in which people professionally required to manage their emotions could, briefly, not manage them. That is not what you came to give. It may be the most important thing you left behind.",
-    note: '"The field site is not a neutral location. The researcher\'s presence creates something that was not there before their arrival."'
+    type: "Ending — The Institutional Self-Portrait",
+    title: "They showed you exactly what they wanted you to see.",
+    body: "Your interviews are complete, transcribed, coded. The data is defensible. You have three strong findings. You also have a list — written in your own hand on the last night — of everything the curated sample was not designed to reveal: the pension scheme they were told to be grateful for, the suicide briefly mentioned and immediately explained away, the promotions tied to vacancies not years. The list is not in the paper. It is the paper's shadow.",
+    note: '"Every curated sample is also a self-portrait of the institution. Study both."'
   },
 
-  end_inversion: {
+  end_testimony_bsf: {
     ending: true,
-    type: "Ending — The Inversion",
-    title: "You came to study their labor. They studied your freedom.",
-    body: "DD wanted to study at JNU. He took the entrance exam once, knowing he wouldn't pass. Ganpat's notebook had sketches of hammers breaking stones and quotes about saying no — the private vocabulary of a man who has learned to say yes. The Kerala man showed you Parliament photographs like evidence of a life exchanged for this one. They were researching you in their way — what it looked like to do work that left room for your own thought, your own creativity, your own refusal.",
-    note: '"The researcher is also a mirror. What the subject sees in that mirror is data the researcher rarely thinks to collect."'
+    type: "Ending — The Word They Were Not Given",
+    title: "They told you what the institution never said to them.",
+    body: "Devraj Sir showed you the photograph without preamble: two columns of names, two different vocabularies for the same death. He did not perform anger. He performed something more controlled and more durable — the long fluency of a grievance carried for years. Shaheed is not just a word: when the state uses it, it issues a feeling rule, instructing the public to mourn collectively. When the state withholds it, the death stays private. The emotion is privatized. You are writing the record of what privatization costs.",
+    note: '"Documentation is not justice. But it is the beginning of a record."'
   },
 
-  end_shaheed: {
+  end_solidarity_bsf: {
     ending: true,
-    type: "Ending — The Word",
-    title: "You carry a word that was denied to them.",
-    body: "Shaheed. The state uses it to nationalize grief — to instruct the public how to feel, whose death belongs to everyone. BSF deaths do not receive this instruction. Families mourn privately. Names appear on different pillars in a different register without the weight of the word. You write it in your paper. You cite it correctly. You explain the feeling-rule framework. And you know, as you write, that the paper will be read in institutions where the distinction between shaheed and dead will seem like a semantic observation. It is not semantic. It is the entire argument.",
-    note: '"A word withheld by the state is not an administrative detail. It is a political decision about whose grief counts as national and whose remains private."'
+    type: "Ending — The Unscheduled Interview",
+    title: "You talked to his daughter.",
+    body: "She was on the phone for four minutes. She thanked you for visiting her father. She said he talks about the parliament posting often — the years when he mattered to a place, when the place knew his name. You said: he told us about it too. He was sitting across the table from you watching you speak to her, and his face was doing something private and complicated. You did not write this down during the call. You wrote it afterward, from memory. It is the truest thing in your field notes.",
+    note: '"Sometimes the research happens in the four minutes the methodology didn\'t plan for."'
   },
 
-  end_broken_contract: {
+  end_reflexive_bsf: {
     ending: true,
-    type: "Ending — The Broken Contract",
-    title: "The state broke its promise. Your paper documents a smaller version of the same.",
-    body: "The social contract was clear: give us your youth, your family life, your safety — we guarantee your dignity afterward. NPS dismantled that. Op Sindoor's medal ceremony dismantled part of it too. What you were promised — access, honest data, cooperation — was also mediated and curated and managed. You received the version the institution could afford to give you. You documented it as carefully as you could. Both betrayals are smaller than the one Ganpat described. Neither is nothing.",
-    note: '"Institutions manage their own representation. The researcher\'s job is not to expose this — it is to notice the management and be honest about what they could and couldn\'t see through it."'
+    type: "Ending — What Your Presence Cost",
+    title: "You were a variable in every interview you conducted.",
+    body: "Your gender. Your university. Your civilian status. Your youth. The fact that you could leave. In every room, these facts preceded your questions and followed your silences. Pandey reassessed everything he said when he learned where you were from. The curated sample was partly about you — who they thought was safe to show you. Your reflexivity section will be the longest in the paper. It will also be the most read.",
+    note: '"The researcher who does not appear in their own data has not looked carefully enough."'
   },
 
-  end_civilian: {
+  end_annotation_bsf: {
     ending: true,
-    type: "Ending — The Limit",
-    title: "Mishra was right. You couldn't fully understand. That is also a finding.",
-    body: "He said: emotions samajhne ke liye wardi pehenni padti hai. To understand these emotions you need to wear the uniform. You did not wear the uniform. You sat across from people for three days with a recorder and a consent form and academic frameworks built far from the Punjab border. Your paper will be read. It will be useful. And it will contain a gap that no methodology can close — the gap between knowing about and knowing from. Naming that gap honestly is the most rigorous thing you can do with it.",
-    note: '"Positionality is not a problem to be solved. It is a condition to be documented — precisely, without self-pity, as part of the method."'
+    type: "Ending — What Your Silence Cost Them",
+    title: "You managed your identity the way they managed their emotions.",
+    body: "Strategically, in service of an outcome. You wanted data. They wanted to control the image. Both of you succeeded, partly. What remains: Pandey's trailing sentence, the conversation he walked back in his head on learning where you were from, three days of interviews that now carry a small asterisk. Your methodology section will address this. Your findings will be careful. Something will still be off, and you will know it.",
+    note: '"A silence is also a decision about what matters. Make that decision visible."'
   },
 
-  end_moral_dissonance: {
+  end_moral_choice: {
     ending: true,
-    type: "Ending — They Know",
-    title: "They know the system is wrong. They stay anyway.",
-    body: "Ganpat said: 'Hume aisa feel hota hai hum gadhe hain.' We feel like donkeys. DD wrote in his notebook that he wants a job where he can show his creativity. The samosa-wala SI said the force needed real human connection, not formal interviews — and then submitted to a formal interview. The Khalsa college boy runs a side business because the pension can't be trusted. They know. They are not deceived. They have done the calculation and decided — or had decided for them — that staying is the available option. Your paper will call this structural. They call it Tuesday.",
-    note: '"The most difficult finding is the one that cannot be fixed by the analysis that produced it. Document it anyway."'
+    type: "Ending — The Space Between the Rules",
+    title: "He found ways to act that the institution had not prohibited.",
+    body: "He counsels his jawans using invented stories — fake anecdotes of how he overcame the same problem they are facing. He lets a man caught sleeping on duty go with a warning instead of seven years. He tells the cricket team to lose. These are not rule-breaking. They are movements in the small space between what is written and what is survivable. Your finding: the force does not only produce compliance. It produces people who know exactly where the rules have enough give to breathe.",
+    note: '"Moral agency is not always visible as resistance. Sometimes it looks like discretion."'
   }
 
 };
