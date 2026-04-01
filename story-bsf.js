@@ -6,14 +6,6 @@
 // Source material: fieldwork notes from BSF cantonment research, August 2025.
 // All participant names are pseudonyms. Institutional details are real.
 //
-// Pseudonym key (internal reference only — do not publish):
-//   Devraj Sir  = Deputy Commander (DD in original notes)
-//   Suresh Sir  = Devraj Sir's batchmate (Ganpat in original notes)
-//   Arjun Sir   = Commander (Amar Sir in original notes)
-//   Rao         = hostile officer (Mishra in original notes)
-//   Pandey      = interview subject, final day (Chaturvedi in original notes)
-//   Ranjit      = junior officer, emotional intelligence scene (Amarjeet)
-//
 // Validate with: node validate.js story-bsf.js
 // ─────────────────────────────────────────────────────────────────────────────
 
