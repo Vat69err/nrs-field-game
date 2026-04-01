@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Day in the Field — NRS</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@800&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg:      #070709;
+  --bg2:     #0d0d12;
+  --text:    #e8e4f0;
+  --muted:   #7a748e;
+  --dim:     #4a3d78;
+  --a1:      #7c5bd7;
+  --a3:      #9b7ef8;
+  --rule:    #1a1820;
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --sans:    'DM Sans', sans-serif;
+  --display: 'Syne', sans-serif;
+}
+
+html, body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+}
+
+/* ── NAV ── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+.nav-logo {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--a3);
+  text-decoration: none;
+}
+.nav-back {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--text); }
+
+/* ── SHELL ── */
+.game-shell {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+.game-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 1.5rem;
+}
+
+/* ── PROGRESS BAR ── */
+.progress-track {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 3rem;
+}
+.progress-pip {
+  height: 2px;
+  flex: 1;
+  background: var(--rule);
+  transition: background 0.4s;
+}
+.progress-pip.done   { background: var(--a1); }
+.progress-pip.active { background: var(--a3); }
+
+/* ── SCENE ── */
+.scene-location {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 1.2rem;
+}
+.scene-text {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  min-height: 6rem;
+}
+.scene-text em { font-style: italic; color: var(--a3); }
+
+/* ── CHOICES ── */
+.choices { display: flex; flex-direction: column; gap: 1rem; }
+
+.choice-btn {
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.6;
+  text-align: left;
+  padding: 1.1rem 3rem 1.1rem 1.4rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  position: relative;
+}
+.choice-btn::before {
+  content: '→';
+  position: absolute;
+  right: 1.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dim);
+  transition: color 0.2s, right 0.2s;
+}
+.choice-btn:hover {
+  border-color: var(--a3);
+  color: var(--text);
+  background: rgba(155,126,248,0.04);
+}
+.choice-btn:hover::before { color: var(--a3); right: 1.1rem; }
+
+/* ── ENDING CARD ── */
+.ending {
+  display: none;
+  border: 1px solid var(--rule);
+  padding: 2.5rem;
+  background: var(--bg2);
+}
+.ending-type {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 1rem;
+}
+.ending-title {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 300;
+  color: var(--a3);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+.ending-body {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 2rem;
+}
+.ending-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--dim);
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+  margin-bottom: 2rem;
+}
+.restart-btn {
+  background: none;
+  border: 1px solid rgba(155,126,248,0.35);
+  color: var(--a3);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.restart-btn:hover {
+  border-color: var(--a3);
+  background: rgba(155,126,248,0.06);
+  color: var(--text);
+}
+.path-note {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+/* ── LOG ── */
+.log {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.log-entry {
+  font-size: 0.8rem;
+  color: var(--dim);
+  line-height: 1.7;
+  padding-left: 1rem;
+  border-left: 1px solid var(--rule);
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+footer p { font-size: 0.72rem; color: var(--dim); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  nav, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .game-shell { padding: 3rem 1.5rem 5rem; }
+}
+
+/* ── ANIMATION ── */
+.fade { animation: fadeIn 0.4s ease both; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://nrsociality.org/" class="nav-logo">NRS.</a>
+  <a href="https://nrsociality.org/" class="nav-back">← Back</a>
+</nav>
+
+<div class="game-shell">
+  <p class="game-label">A Day in the Field</p>
+
+  <div class="progress-track" id="progress"></div>
+  <div id="log" class="log"></div>
+
+  <div id="scene">
+    <p class="scene-location" id="location"></p>
+    <p class="scene-text fade" id="scene-text"></p>
+    <div class="choices fade" id="choices"></div>
+  </div>
+
+  <div class="ending fade" id="ending">
+    <p class="ending-type"  id="ending-type"></p>
+    <h2 class="ending-title" id="ending-title"></h2>
+    <p class="ending-body"  id="ending-body"></p>
+    <p class="ending-note"  id="ending-note"></p>
+    <button class="restart-btn" onclick="restart()">Begin again →</button>
+    <p class="path-note" id="path-note"></p>
+  </div>
+</div>
+
+<footer>
+  <a href="https://nrsociality.org/"
+     style="font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:800;
+            color:#7c5bd7;letter-spacing:0.1em;text-decoration:none;">NRS.</a>
+  <p>Anti disciplinary research &amp; social action</p>
+</footer>
+
+<!-- Story data lives in story-data.js — only edit that file -->
+<script src="story-data.js"></script>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// ENGINE — do not edit this file to add story content.
+// All scenes and endings live in story-data.js.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Derived counts — automatically correct as story grows
+const TOTAL_ENDINGS = Object.values(story).filter(s => s.ending).length;
+const TOTAL_STEPS   = 6; // visual progress pips
+
+// State
+let history  = [];
+let step     = 0;
+const endingsSeen = new Set(
+  JSON.parse(sessionStorage.getItem('nrs_endingsSeen') || '[]')
+);
+
+// ── Build progress pips ──
+(function buildPips() {
+  const track = document.getElementById('progress');
+  for (let i = 0; i < TOTAL_STEPS; i++) {
+    const pip = document.createElement('div');
+    pip.className = 'progress-pip' + (i === 0 ? ' active' : '');
+    pip.id = 'pip-' + i;
+    track.appendChild(pip);
+  }
+})();
+
+// ── Update progress bar ──
+function updateProgress(current) {
+  for (let i = 0; i < TOTAL_STEPS; i++) {
+    const pip = document.getElementById('pip-' + i);
+    if (!pip) continue;
+    if      (i < current)  pip.className = 'progress-pip done';
+    else if (i === current) pip.className = 'progress-pip active';
+    else                    pip.className = 'progress-pip';
+  }
+}
+
+// ── Render a scene or ending ──
+function renderScene(key) {
+  const scene = story[key];
+  if (!scene) {
+    console.error('Missing scene key:', key);
+    return;
+  }
+
+  // ── ENDING ──
+  if (scene.ending) {
+    endingsSeen.add(key);
+    sessionStorage.setItem('nrs_endingsSeen', JSON.stringify([...endingsSeen]));
+
+    document.getElementById('scene').style.display  = 'none';
+    const el = document.getElementById('ending');
+    el.style.display = 'block';
+    el.className     = 'ending fade';
+
+    document.getElementById('ending-type').textContent  = scene.type;
+    document.getElementById('ending-title').textContent = scene.title;
+    document.getElementById('ending-body').textContent  = scene.body;
+    document.getElementById('ending-note').textContent  = scene.note;
+
+    updateProgress(TOTAL_STEPS - 1);
+    renderLog();
+
+    const seen     = endingsSeen.size;
+    const pathNote = document.getElementById('path-note');
+    pathNote.textContent = seen < TOTAL_ENDINGS
+      ? `Ending ${seen} of ${TOTAL_ENDINGS} found — other paths remain.`
+      : `All ${TOTAL_ENDINGS} endings found.`;
+    return;
+  }
+
+  // ── SCENE ──
+  step++;
+  updateProgress(Math.min(step, TOTAL_STEPS - 2));
+
+  document.getElementById('location').textContent = scene.location;
+
+  const textEl = document.getElementById('scene-text');
+  textEl.innerHTML = scene.text;
+  textEl.className = 'scene-text fade';
+
+  const choicesEl = document.getElementById('choices');
+  choicesEl.innerHTML = '';
+  choicesEl.className = 'choices fade';
+
+  scene.choices.forEach(choice => {
+    const btn       = document.createElement('button');
+    btn.className   = 'choice-btn';
+    btn.textContent = choice.text;
+    btn.onclick     = () => {
+      history.push(choice.text);
+      renderLog();
+      renderScene(choice.next);
+    };
+    choicesEl.appendChild(btn);
+  });
+}
+
+// ── Render the choice log ──
+function renderLog() {
+  const logEl = document.getElementById('log');
+  logEl.innerHTML = '';
+  history.forEach(text => {
+    const div       = document.createElement('div');
+    div.className   = 'log-entry';
+    div.textContent = text;
+    logEl.appendChild(div);
+  });
+}
+
+// ── Restart ──
+function restart() {
+  history = [];
+  step    = 0;
+  document.getElementById('ending').style.display = 'none';
+  document.getElementById('scene').style.display  = 'block';
+  document.getElementById('log').innerHTML         = '';
+  updateProgress(0);
+  renderScene('start');
+}
+
+// ── Init ──
+renderScene('start');
+</script>
+</body>
+</html>
