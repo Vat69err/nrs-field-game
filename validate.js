@@ -1,13 +1,23 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // NRS Field Game — Link Validator
-// Run with:  node validate.js
+//
+// Usage:
+//   node validate.js                  → validates story-data.js  (entrepreneur game)
+//   node validate.js story-bsf.js     → validates story-bsf.js   (BSF game)
 // ─────────────────────────────────────────────────────────────────────────────
 
 const fs   = require('fs');
 const path = require('path');
 
-// Load story-data.js as a module
-const raw = fs.readFileSync(path.join(__dirname, 'story-data.js'), 'utf8');
+const filename = process.argv[2] || 'story-data.js';
+const filepath = path.join(__dirname, filename);
+
+if (!fs.existsSync(filepath)) {
+  console.error(`\n  ✗  File not found: ${filename}\n`);
+  process.exit(1);
+}
+
+const raw   = fs.readFileSync(filepath, 'utf8');
 const story = (new Function(raw + '\nreturn story;'))();
 
 const allKeys  = Object.keys(story);
@@ -66,7 +76,8 @@ function countPaths(from, target, visited = new Set()) {
 
 // ── Report ──
 console.log('\n─────────────────────────────────────────────');
-console.log('  NRS Field Game — Validator');
+console.log(`  NRS Field Game — Validator`);
+console.log(`  File: ${filename}`);
 console.log('─────────────────────────────────────────────');
 console.log(`  Total nodes   : ${allKeys.length}`);
 console.log(`  Scenes        : ${scenes.length}`);
