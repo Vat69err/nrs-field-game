@@ -1,14 +1,13 @@
-// story-laxmi.js
+// story-meena.js
 // Participant 02 - Rural Rajasthan
-// Pseudonym: Laxmi | Daughter: Kavita | Son: Raju
+// Pseudonym: Meena | Daughter: Kavita | Son: Raju
 // All names, locations, and identifying details changed.
-// Source transcript: 47_Laxmi Lohar (anonymised)
 
 const story = {
 
   start: {
     location: 'A rented room, Rajasthan - morning',
-    text: `Neelima di, the community organizer who set up this meeting, leads you into a narrow lane. The door is open onto a room the size of a large cupboard - kitchen, one room, a bathroom. A woman sits on the floor, back straight. She looks up without surprise. <em>"Nikaalni hai zindagi,"</em> she says, before you have even sat down. <em>Badhiya hai. Nikal gaye hain.</em> Life has to be pulled out. It's fine. We have managed. Neelima di says her name is Laxmi.`,
+    text: `Neelima di, the community organizer who set up this meeting, leads you into a narrow lane. The door is open onto a room the size of a large cupboard - kitchen, one room, a bathroom. A woman sits on the floor, back straight. She looks up without surprise. <em>"Nikaalni hai zindagi,"</em> she says, before you have even sat down. <em>Badhiya hai. Nikal gaye hain.</em> Life has to be pulled out. It's fine. We have managed. Neelima di says her name is Meena.`,
     choices: [
       { text: 'Sit down and ask her to tell you about herself.', next: 'her_opening' },
       { text: 'Ask Neelima di to give you some context first.', next: 'neelima_context' }
@@ -17,16 +16,16 @@ const story = {
 
   neelima_context: {
     location: 'Outside, in the lane',
-    text: `Neelima di speaks quickly and quietly. She met Laxmi around eight years ago. The husband had been gone for some time. The children were small. There had been a crisis - a child burned by hot tea, no money for a hospital. "Maine le gayi thi," she says - I took her. She explains the center: clothes for women who came in torn ones, slippers, medical referrals. She says: <em>"Pehle toh maarne ke liye taiyaar baithī thi."</em> Ready to die. She says it like a fact from a report. Then: "Ab toh Jhansi ki Rani hai." Now she is our Jhansi ki Rani. You go inside.`,
+    text: `Neelima di speaks quickly and quietly. She met Meena around eight years ago. The husband had been gone for some time. The children were small. There had been a crisis - a child burned by hot tea, no money for a hospital. "Maine le gayi thi," she says - I took her. She explains the center: clothes for women who came in torn ones, slippers, medical referrals. She says: <em>"Pehle toh maarne ke liye taiyaar baithī thi."</em> Ready to die. She says it like a fact from a report. Then: "Ab toh Jhansi ki Rani hai." Now she is our Jhansi ki Rani. You go inside.`,
     choices: [
-      { text: 'Begin by asking Laxmi how she is managing now.', next: 'her_opening' },
-      { text: 'Ask Laxmi to start from wherever she wants.', next: 'early_life' }
+      { text: 'Begin by asking Meena how she is managing now.', next: 'her_opening' },
+      { text: 'Ask Meena to start from wherever she wants.', next: 'early_life' }
     ]
   },
 
   her_opening: {
     location: 'Rented room',
-    text: `You ask Laxmi to tell you about herself. She doesn't take long to decide where to start. <em>"Iske papa chhod ke gaye the,"</em> she says. These children's father left. That is the beginning. She says it plainly, as if reading the first line of a document. It happened. The children were small. She was alone. Neelima di, across the room, says quietly: <em>"Aaj bhi nasha, uske saath koi aurat tik nahi paati."</em> He still drinks. No woman stays with him. Laxmi says nothing more on this for now.`,
+    text: `You ask Meena to tell you about herself. She doesn't take long to decide where to start. <em>"Iske papa chhod ke gaye the,"</em> she says. These children's father left. That is the beginning. She says it plainly, as if reading the first line of a document. It happened. The children were small. She was alone. Neelima di, across the room, says quietly: <em>"Aaj bhi nasha, uske saath koi aurat tik nahi paati."</em> He still drinks. No woman stays with him. Meena says nothing more on this for now.`,
     choices: [
       { text: 'Ask about the marriage - how it started.', next: 'marriage_early' },
       { text: 'Ask what she did those first months alone.', next: 'first_months' },
@@ -45,7 +44,7 @@ const story = {
 
   marriage_early: {
     location: 'Rented room',
-    text: `She was married at four or five years old - alongside her elder sister, both at once. <em>"Ek ke saath ek free,"</em> says Neelima di, laughing. One free with one. Laxmi says: not free exactly, but they gave the younger one along with the older. She was sent to her sasural at around fifteen. The first two or three years were fine. Then it changed. He drank. He got involved with other women. He stopped giving money for the house. Then he stopped coming home altogether.`,
+    text: `She was married at four or five years old - alongside her elder sister, both at once. <em>"Ek ke saath ek free,"</em> says Neelima di, laughing. One free with one. Meena says: not free exactly, but they gave the younger one along with the older. She was sent to her sasural at around fifteen. The first two or three years were fine. Then it changed. He drank. He got involved with other women. He stopped giving money for the house. Then he stopped coming home altogether.`,
     choices: [
       { text: 'Ask what happened when she first found out.', next: 'marriage_trouble' },
       { text: 'Ask when it became permanent - when she knew he wasn\'t coming back.', next: 'return_years' }
@@ -72,7 +71,7 @@ const story = {
 
   children_ages: {
     location: 'Rented room',
-    text: `Kavita was small - she is now in twelfth class. Raju, the son, is in eighth. There was also an older daughter, Laxmi says briefly - she is with the father's people now, has been for two years. <em>"Ye do the,"</em> she says. These two. She does not explain further. The room has school books on the floor and a photograph on the wall. The two children are here, somewhere nearby. This rented room holds everything.`,
+    text: `Kavita was small - she is now in twelfth class. Raju, the son, is in eighth. There was also an older daughter, Meena says briefly - she is with the father's people now, has been for two years. <em>"Ye do the,"</em> she says. These two. She does not explain further. The room has school books on the floor and a photograph on the wall. The two children are here, somewhere nearby. This rented room holds everything.`,
     choices: [
       { text: 'Ask what happened - how the family ended up in this situation.', next: 'marriage_trouble' },
       { text: 'Ask how she manages with two children alone.', next: 'first_months' }
@@ -81,7 +80,7 @@ const story = {
 
   first_months: {
     location: 'Rented room',
-    text: `She was sick from tension. Her mind wasn't working, she says - she didn't know what to do. She was making tea one day, Kavita small beside her. She had a dizzy spell - chakkar - and the pot of hot tea fell directly onto the child. Burns across her body. There was no money to get to a hospital. She didn't even know how serious it was. She took Kavita to Neelima di. <em>"Meri baat toh baad mein suni Kavita ko dekhte hi"</em> - Neelima di looked at the child first, before even hearing Laxmi's story, and took her straight to hospital.`,
+    text: `She was sick from tension. Her mind wasn't working, she says - she didn't know what to do. She was making tea one day, Kavita small beside her. She had a dizzy spell - chakkar - and the pot of hot tea fell directly onto the child. Burns across her body. There was no money to get to a hospital. She didn't even know how serious it was. She took Kavita to Neelima di. <em>"Meri baat toh baad mein suni Kavita ko dekhte hi"</em> - Neelima di looked at the child first, before even hearing Meena's story, and took her straight to hospital.`,
     choices: [
       { text: 'Ask how she found Neelima di.', next: 'finding_neelima' },
       { text: 'Ask what happened after Kavita recovered.', next: 'after_burning' }
@@ -100,7 +99,7 @@ const story = {
 
   hoshiyaar_meaning: {
     location: 'Rented room',
-    text: `She thinks for a moment. What does it mean to become sharp? <em>"Jab main hoshiyaar nahi hui tab ab nahi maarte mere ko - 7-8 saal ho gaye jab nahi haath lagaya."</em> When I was not aware, they hit me. For seven, eight years now - no one touches me. Neelima di says: <em>"Arrey ab toh hamari Jhansi ki Rani hai."</em> Now she is our Jhansi ki Rani. Laxmi doesn't disagree. She just says: theek hi hai.`,
+    text: `She thinks for a moment. What does it mean to become sharp? <em>"Jab main hoshiyaar nahi hui tab ab nahi maarte mere ko - 7-8 saal ho gaye jab nahi haath lagaya."</em> When I was not aware, they hit me. For seven, eight years now - no one touches me. Neelima di says: <em>"Arrey ab toh hamari Jhansi ki Rani hai."</em> Now she is our Jhansi ki Rani. Meena doesn't disagree. She just says: theek hi hai.`,
     choices: [
       { text: 'Ask about the moment she fought back.', next: 'saas_fight' },
       { text: 'Ask about the work she built after that.', next: 'after_burning' }
@@ -109,7 +108,7 @@ const story = {
 
   saas_fight: {
     location: 'Rented room',
-    text: `She was making rotis at the sasural. Something had happened on the phone - some word between her saas and her son. The saas came straight at her and hit her. Two or three slaps. Laxmi pauses. Then: <em>"Phir main uth ke thodi der toh nahi maara, phir sasura ji sab chale gaye toh maine bhi 4-5 chanta phir ache se lagaya."</em> Then I also gave four or five, properly. Everyone in the room laughs, including Neelima di. <em>"Uske baad usne haath nahi lagaya."</em> She never raised her hand again.`,
+    text: `She was making rotis at the sasural. Something had happened on the phone - some word between her saas and her son. The saas came straight at her and hit her. Two or three slaps. Meena pauses. Then: <em>"Phir main uth ke thodi der toh nahi maara, phir sasura ji sab chale gaye toh maine bhi 4-5 chanta phir ache se lagaya."</em> Then I also gave four or five, properly. Everyone in the room laughs, including Neelima di. <em>"Uske baad usne haath nahi lagaya."</em> She never raised her hand again.`,
     choices: [
       { text: 'Ask how she felt after.', next: 'after_fight' },
       { text: 'Ask what her relationship with the sasural is now.', next: 'sasural_now' }
@@ -118,7 +117,7 @@ const story = {
 
   after_fight: {
     location: 'Rented room',
-    text: `She says she was not afraid. <em>"Mukka dekhte hi maara tha usko."</em> She punched her in response. And that was it. <em>"Ab toh himmat hi nahi hogi."</em> Now she wouldn't have the nerve. Neelima di says: if he showed up today, all of them together would wash him out. Laxmi laughs: <em>"Yahi dho de main kya."</em> What would I even wash. It is not the laugh of someone who feels powerful. It is the laugh of someone who has filed the matter away and moved on.`,
+    text: `She says she was not afraid. <em>"Mukka dekhte hi maara tha usko."</em> She punched her in response. And that was it. <em>"Ab toh himmat hi nahi hogi."</em> Now she wouldn't have the nerve. Neelima di says: if he showed up today, all of them together would wash him out. Meena laughs: <em>"Yahi dho de main kya."</em> What would I even wash. It is not the laugh of someone who feels powerful. It is the laugh of someone who has filed the matter away and moved on.`,
     choices: [
       { text: 'Ask about the sasural now.', next: 'sasural_now' },
       { text: 'Ask about the work she does.', next: 'work_intro' }
@@ -136,7 +135,7 @@ const story = {
 
   work_intro: {
     location: 'Rented room',
-    text: `She lists the work: cooking at a fixed place, eight in the morning to nine at night, twelve hours. Stitching at home - blouses, one or two hours in the middle of the day during her break. She trained for stitching - at home first, picking it up slowly, then three or four months at a training center outside. "Khali blouse hi sikha" - just blouses. Neelima di mentions a boutique training program, government-funded, free, at a center in the city. Laxmi says: <em>"Chali toh jaayegi."</em> I can go.`,
+    text: `She lists the work: cooking at a fixed place, eight in the morning to nine at night, twelve hours. Stitching at home - blouses, one or two hours in the middle of the day during her break. She trained for stitching - at home first, picking it up slowly, then three or four months at a training center outside. "Khali blouse hi sikha" - just blouses. Neelima di mentions a boutique training program, government-funded, free, at a center in the city. Meena says: <em>"Chali toh jaayegi."</em> I can go.`,
     choices: [
       { text: 'Ask about her son - you heard he also works after school.', next: 'raju_work' },
       { text: 'Ask about Kavita\'s plans for after twelfth class.', next: 'kavita_plans' }
@@ -145,7 +144,7 @@ const story = {
 
   silai_work: {
     location: 'Rented room',
-    text: `She learned stitching by herself at home first - slowly, by doing. Then she went for formal training for three or four months. Just blouses. She stitches during her midday break from the cooking job. Savita, who is also in the room, holds up her blouse: <em>"Mere bhi sil dena ab aap."</em> Stitch mine too. Laxmi waves her off with a slight smile. She says: if she learns the full boutique work - kurtas, suits - she could take more work home. Neelima di nods.`,
+    text: `She learned stitching by herself at home first - slowly, by doing. Then she went for formal training for three or four months. Just blouses. She stitches during her midday break from the cooking job. Savita, who is also in the room, holds up her blouse: <em>"Mere bhi sil dena ab aap."</em> Stitch mine too. Meena waves her off with a slight smile. She says: if she learns the full boutique work - kurtas, suits - she could take more work home. Neelima di nods.`,
     choices: [
       { text: 'Ask about her son who works after school.', next: 'raju_work' },
       { text: 'Ask about what she is planning next.', next: 'future_vision' }
@@ -154,37 +153,37 @@ const story = {
 
   children_alone: {
     location: 'Rented room',
-    text: `The son, Raju, goes to school and then at five in the evening goes to a kirana shop near the house. He comes back at ten at night. <em>"Ye toh kahin nahi dauda hai."</em> He doesn't run around. School, then shop, then home. He earns a little. Kavita is in twelfth class, Arts. She is here, listening quietly. The interviewer asks what she wants to do after. She says she hasn't thought yet. Neelima di mentions a government computer course, boutique training, a certificate. Laxmi says: padhai vadhao. Keep studying.`,
+    text: `The son, Raju, goes to school and then at five in the evening goes to a kirana shop near the house. He comes back at ten at night. <em>"Ye toh kahin nahi dauda hai."</em> He doesn't run around. School, then shop, then home. He earns a little. Kavita is in twelfth class, Arts. She is here, listening quietly. The interviewer asks what she wants to do after. She says she hasn't thought yet. Neelima di mentions a government computer course, boutique training, a certificate. Meena says: padhai vadhao. Keep studying.`,
     choices: [
-      { text: 'Ask Laxmi what she hopes for Kavita.', next: 'kavita_hopes' },
+      { text: 'Ask Meena what she hopes for Kavita.', next: 'kavita_hopes' },
       { text: 'Ask about Raju\'s work at the shop.', next: 'raju_work' }
     ]
   },
 
   raju_work: {
     location: 'Rented room',
-    text: `Raju is in eighth class. He comes from school and at five goes to a kirana shop nearby - stays until ten at night. He earns something. Laxmi says it simply: <em>"Kamata hai thoda."</em> He earns a little. Neelima di, to the boy: "Gutka khata ho?" Tobacco? He says no. She studies his teeth with mock severity. He laughs. He doesn't go anywhere, Laxmi says. School, shop, home. <em>"Seedha hai."</em> Straight. She says this with approval and something that is not quite pride and is not quite relief.`,
+    text: `Raju is in eighth class. He comes from school and at five goes to a kirana shop nearby - stays until ten at night. He earns something. Meena says it simply: <em>"Kamata hai thoda."</em> He earns a little. Neelima di, to the boy: "Gutka khata ho?" Tobacco? He says no. She studies his teeth with mock severity. He laughs. He doesn't go anywhere, Meena says. School, shop, home. <em>"Seedha hai."</em> Straight. She says this with approval and something that is not quite pride and is not quite relief.`,
     choices: [
       { text: 'Ask about Kavita\'s plans.', next: 'kavita_plans' },
-      { text: 'Ask about what Laxmi wants for herself.', next: 'future_vision' }
+      { text: 'Ask about what Meena wants for herself.', next: 'future_vision' }
     ]
   },
 
   kavita_plans: {
     location: 'Rented room',
-    text: `Kavita - burned by hot tea years ago, now in twelfth class - sits quietly through much of this. When the interviewer asks her directly what she wants to do, she says she hasn't thought yet. Arts. The interviewer mentions her own sister does interior design, offers guidance. Kavita is polite, says little. Neelima di suggests: computer course, boutique training, a certificate from the government scheme. <em>"Apna khud ka dookaan."</em> Her own shop. Laxmi says: <em>"Padhai vadhao beta, padhai ke liye."</em> Study more. First study.`,
+    text: `Kavita - burned by hot tea years ago, now in twelfth class - sits quietly through much of this. When the interviewer asks her directly what she wants to do, she says she hasn't thought yet. Arts. The interviewer mentions her own sister does interior design, offers guidance. Kavita is polite, says little. Neelima di suggests: computer course, boutique training, a certificate from the government scheme. <em>"Apna khud ka dookaan."</em> Her own shop. Meena says: <em>"Padhai vadhao beta, padhai ke liye."</em> Study more. First study.`,
     choices: [
-      { text: 'Ask Laxmi about her own plans and what she is working toward.', next: 'future_vision' },
+      { text: 'Ask Meena about her own plans and what she is working toward.', next: 'future_vision' },
       { text: 'Ask about the sasural - does she still go?', next: 'sasural_now' }
     ]
   },
 
   kavita_hopes: {
     location: 'Rented room',
-    text: `Laxmi doesn't answer with ambition first. She says: she is studying, she is in twelfth. What more is there for now? Then she adds: computer, training, something of her own. Neelima di says: if both of them train and open a boutique together, they could employ other women from the village. Laxmi listens. <em>"Samajh gaye,"</em> she says. Understood. Whether this is agreement or just acknowledgment is hard to read. She looks at Kavita, who is looking at the floor.`,
+    text: `Meena doesn't answer with ambition first. She says: she is studying, she is in twelfth. What more is there for now? Then she adds: computer, training, something of her own. Neelima di says: if both of them train and open a boutique together, they could employ other women from the village. Meena listens. <em>"Samajh gaye,"</em> she says. Understood. Whether this is agreement or just acknowledgment is hard to read. She looks at Kavita, who is looking at the floor.`,
     choices: [
       { text: 'Ask about the sasural - she still goes there sometimes?', next: 'sasural_now' },
-      { text: 'Ask what Laxmi wants for herself, not just the children.', next: 'future_vision' }
+      { text: 'Ask what Meena wants for herself, not just the children.', next: 'future_vision' }
     ]
   },
 
@@ -235,7 +234,7 @@ const story = {
 
   researcher_question: {
     location: 'Rented room',
-    text: `You ask: is there anything you want a researcher to understand - about what you have done, what it has cost, what it means? She looks at you for a moment. Neelima di speaks first: <em>"Mahilaon ke upar padhai kar rahi hain unki jaankari lekar - toh uspe jo kanoon bante hain ya kuch hota hai toh tab ye apni baat rakh sakte hain."</em> They are studying what happens to women. So that when laws are made, women can put their case. Laxmi listens. She says: <em>"Haan."</em> Yes.`,
+    text: `You ask: is there anything you want a researcher to understand - about what you have done, what it has cost, what it means? She looks at you for a moment. Neelima di speaks first: <em>"Mahilaon ke upar padhai kar rahi hain unki jaankari lekar - toh uspe jo kanoon bante hain ya kuch hota hai toh tab ye apni baat rakh sakte hain."</em> They are studying what happens to women. So that when laws are made, women can put their case. Meena listens. She says: <em>"Haan."</em> Yes.`,
     choices: [
       { text: 'Leave reflecting on what research cannot actually hold.', next: 'end_reflexive' },
       { text: 'Leave thinking about what she has built.', next: 'end_witness' },
@@ -249,7 +248,7 @@ const story = {
     type: 'Ending - The work of staying',
     title: 'Nikal gaye hain',
     body: 'You close your notebook and thank her. She nods. She has a meal to prepare and a morning shift starting early. The interview is over. What you have are facts: twelve hours a day, two jobs, two children, eight years alone, one rented room. They are accurate facts. They do not explain how she stays, or what it costs to stay. She sees you out with the same matter-of-fact courtesy with which she received you. "Nikaalni hai zindagi, badhiya hai." She said it at the beginning. She does not need to say it again.',
-    note: '"Nikaalni hai zindagi, badhiya hai. Nikal gaye hain." - Laxmi'
+    note: '"Nikaalni hai zindagi, badhiya hai. Nikal gaye hain." - Meena'
   },
 
   end_witness: {
@@ -257,14 +256,14 @@ const story = {
     type: 'Ending - What has been built',
     title: 'Badhiya hai',
     body: 'You leave knowing something you cannot fully account for. Eight years ago she was ready to die - by her own account, by Neelima di\'s account. Today she runs two sources of income, keeps both children in school, travels to sasural on her own terms to collect her share, and laughs - genuinely laughs - retelling the story of the four or five slaps she gave her saas. She does not call this strength. She calls it: theek hai. Fine. You have watched someone name what they have built in the most minimal language possible. You are not sure whether writing it down gets closer to it or further away.',
-    note: '"Ab toh madam ne hoshiyaar kar diya hai." - Laxmi'
+    note: '"Ab toh madam ne hoshiyaar kar diya hai." - Meena'
   },
 
   end_reflexive: {
     ending: true,
     type: 'Ending - What research cannot hold',
     title: 'Jaankari',
-    body: 'Neelima di\'s explanation of what your work is for - laws, policies, women\'s testimony - was directed at you as much as at Laxmi. Laxmi said "haan." She did not push back or ask what had come of it so far. But what you transcribe, and what it becomes in a paper, and what eventually reaches a policy room, and what that policy then does for women like her: these are four different things, each at a distance from the one before it. You are at step one. You leave with that weight, and with her opening sentence: nikaalni hai zindagi. Life has to be pulled out. Not given.',
+    body: 'Neelima di\'s explanation of what your work is for - laws, policies, women\'s testimony - was directed at you as much as at Meena. Meena said "haan." She did not push back or ask what had come of it so far. But what you transcribe, and what it becomes in a paper, and what eventually reaches a policy room, and what that policy then does for women like her: these are four different things, each at a distance from the one before it. You are at step one. You leave with that weight, and with her opening sentence: nikaalni hai zindagi. Life has to be pulled out. Not given.',
     note: '"Mahilaon ke upar padhai kar rahi hain... toh uspe jo kanoon bante hain..." - Neelima di'
   },
 
@@ -273,23 +272,23 @@ const story = {
     type: 'Ending - The conditions underneath',
     title: 'Aisi halat',
     body: 'You leave noting everything she navigated that she did not make: a marriage contracted when she was four years old, a husband whose trajectory of drinking and abandonment she neither caused nor could stop, a daughter burned by hot tea in a moment of exhaustion-induced dizziness, a legal system that could not locate him to serve papers to. She built what she built on ground that was not level. What she calls theek hai covers an enormous amount of uneven terrain. Your research can document the terrain. What moves the ground is a different question.',
-    note: '"Ki bas theek us time toh bahut hi mar jana achha hai madam aesi halat." - Laxmi'
+    note: '"Ki bas theek us time toh bahut hi mar jana achha hai madam aesi halat." - Meena'
   },
 
   end_children: {
     ending: true,
     type: 'Ending - The ones coming after',
     title: 'Seedhe hain dono',
-    body: 'Kavita is in twelfth class. She has not decided what comes after. Raju works at the kirana shop from five to ten and says he doesn\'t eat tobacco. Laxmi has arranged this: school for both, herself working twelve hours a day plus stitching at home, one rented room that holds everything. What happens to the children - whether they hold the ground she has cleared - is not something today\'s conversation can tell you. She knows this. Padhai vadhao. Keep studying. It is an instruction and a hope and a calculation, spoken as one.',
-    note: '"Seedhe hain dono." - Laxmi'
+    body: 'Kavita is in twelfth class. She has not decided what comes after. Raju works at the kirana shop from five to ten and says he doesn\'t eat tobacco. Meena has arranged this: school for both, herself working twelve hours a day plus stitching at home, one rented room that holds everything. What happens to the children - whether they hold the ground she has cleared - is not something today\'s conversation can tell you. She knows this. Padhai vadhao. Keep studying. It is an instruction and a hope and a calculation, spoken as one.',
+    note: '"Seedhe hain dono." - Meena'
   },
 
   end_neelima: {
     ending: true,
     type: 'Ending - The organizer in the room',
     title: 'Madam ne hoshiyaar kar diya',
-    body: 'For this entire interview, Neelima di was present. She filled in what Laxmi left out - the severity of Kavita\'s burns, the legal pressure on the husband, the center\'s services. She gave context, humor, and a kind of protective narration. The story you have heard is partly the story of that eight-year relationship: what it made possible when there was no money and a child was burned, and what it still makes possible now. You did not come to study community organizing. But it is in this room, and it is why this interview happened at all, and it is why she is still here.',
-    note: '"Madam ne sahi karwayi hospital le jaake." - Laxmi'
+    body: 'For this entire interview, Neelima di was present. She filled in what Meena left out - the severity of Kavita\'s burns, the legal pressure on the husband, the center\'s services. She gave context, humor, and a kind of protective narration. The story you have heard is partly the story of that eight-year relationship: what it made possible when there was no money and a child was burned, and what it still makes possible now. You did not come to study community organizing. But it is in this room, and it is why this interview happened at all, and it is why she is still here.',
+    note: '"Madam ne sahi karwayi hospital le jaake." - Meena'
   }
 
 };
