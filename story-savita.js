@@ -1,151 +1,141 @@
 const story = {
 
   start: {
-    location: 'Hiran Magri, Udaipur',
-    text: 'She is sitting in the hall on the first floor — the one where the self-help group meetings happen, twenty women once a month, five hundred rupees each into a common pool. Today she is alone. On a low table, a length of fabric with kashida embroidery half done. She picks it up as she speaks, not to demonstrate — just to have something in her hands. She has been doing this work since Class 9.',
+    location: 'Hiranmagri, Udaipur',
+    text: 'She has just come back inside from the fields — or so it feels: she carries that quality of someone who does not stop moving. She says it herself, easily: <em>shuru se mahila sangathan mein kaam kiya aur ek rupiya nahi milta tha, sirf mahilao ki help ki maine.</em> Years of free work. But she does not say this as complaint. She says it as context, before the next thing: <em>lekin mera itna acha circle ban gaya Udaipur ke har gali har mohalle, har lady se itna ghar jaisa apne real sister jaisa sambandh ho gaya.</em> She built something from it that no one paid for.',
     choices: [
-      { text: 'Ask about the embroidery — when she began.', next: 'scene_class9' },
-      { text: 'Ask about the hall — how many groups meet here, how it works.', next: 'scene_groups' }
+      { text: 'Ask about the circle — how it was built.', next: 'scene_network' },
+      { text: 'Ask about the home — what those early years looked like.', next: 'scene_ghar' }
     ]
   },
 
-  scene_class9: {
-    location: 'Memory — Class 9',
-    text: 'She learned embroidery in Class 9. Then she married. She was sixteen. After marriage: cook, eat, sleep, wake up, do it again. And then, when the mind became free enough, a question came: <em>kya poori zindagi aise hi jaayegi, ya isme kuch karna hai?</em> Is this whole life going to pass this way, or is there something in it to do? The embroidery hadn\'t gone anywhere. She just had to find it again — and find a way to do it without being seen.',
+  scene_sangathan: {
+    location: 'Hiranmagri, Udaipur',
+    text: 'Asha Sansthan. An NGO with an office in Kharoal Colony. She joined them and worked — going house to house, explaining schemes, connecting women to resources, running things that needed running. Payment: two rupees per day for travel. <em>Ek rupiya nahi milta tha aur aane-jaane ka kiraya milta tha — bas itna.</em> An English madam named Jeanny ran it from abroad. The women who benefited from that work still call her. They call her the way you call a sister — to ask, to tell, to check in. That is what the two rupees built.',
     choices: [
-      { text: 'Ask how she started working — how she managed to begin.', next: 'scene_secret' },
-      { text: 'Ask about the husband — what his position was.', next: 'scene_husband_early' }
+      { text: 'Stay with this — the free years and what they built.', next: 'end_ek_rupiya' },
+      { text: 'Ask what came after — the paid work she found next.', next: 'scene_sahara' }
     ]
   },
 
-  scene_groups: {
-    location: 'Hiran Magri, Udaipur',
-    text: 'Eight groups. Ten meetings a month. Two hundred and more women. Some groups meet here in this hall; some she goes to. <em>Ek dukh bat jaata hai.</em> When you sit together, shared sorrow is halved. Money matters too — savings from the pool, not from a bank. With a bank, no one cares what condition you are in. With the group, you can miss a month\'s payment. The group holds you. The purpose is not to remove people from the fold — it is to hold their hand and walk alongside them.',
+  scene_sahara: {
+    location: 'Udaipur — 2007 onward',
+    text: 'A classified ad in a newspaper: Sahara Insurance, looking for women for field work. Her friend cut it out and brought it. There was no phone at home — 2007. They went to a PCO and called for two rupees. She got the job. From there: she was collecting money, building a team, depositing in FDs. Then a company called BRG — one thousand rupees joining fee, four hundred commission per member. She did fifty joinings in a day at her peak. <em>Kyunki chota-chota kaam karne se kya hota, knowledge ho gaya.</em> After that: Safe Shop. Twenty to thirty thousand rupees a week. She was learning with every step.',
     choices: [
-      { text: 'Ask what the meetings actually hold — what problems women bring.', next: 'scene_women_problems' },
-      { text: 'Stay here — this, the savings, the hall, the ten meetings.', next: 'end_ek_dukh' }
+      { text: 'Stay here — what the knowledge looked like, what it built.', next: 'end_sahara' },
+      { text: 'Ask about her children — what she was building all this for.', next: 'scene_bacchon' }
     ]
   },
 
-  scene_husband_early: {
-    location: 'Memory — Hathipole, Udaipur',
-    text: 'His position was simple: they should not work. He was earning; that was enough. Fifteen people in the joint family in Hathipole. She put the child to sleep and left. She picked up bajubandh work orders. She came back before anyone noticed. <em>Unko nahi pata tha.</em> They didn\'t know. For years she did the work in other people\'s names — orders coming in through someone else\'s account, money then passed to her — before she registered anything under her own.',
+  scene_network: {
+    location: 'Hiranmagri, Udaipur',
+    text: 'Every lane. Every mohalla. She went to them all — not for a salary, for the habit of going. When you go like that, without an agenda, without a project closing date, something different happens: they become yours, and you become theirs. Women who barely knew each other\'s names would call her when something went wrong. A new wife in trouble. A scheme nobody had told them about. A form that needed filling. She became the person you called. She still is. <em>Har lady se itna ghar jaisa apne real sister jaisa sambandh ho gaya.</em> Like a real sister. Not like an NGO worker.',
     choices: [
-      { text: 'Ask how many times she worked through others before her own name.', next: 'scene_teen_baar' },
-      { text: 'Ask what it cost — doing all of it in secret.', next: 'scene_secret' }
+      { text: 'Stay here.', next: 'end_network' },
+      { text: 'Ask how the free years began — the sangathan, Asha Sansthan.', next: 'scene_sangathan' }
     ]
   },
 
-  scene_secret: {
-    location: 'Memory — Hathipole, Udaipur',
-    text: 'Out of fear of him, she took orders through others. Work would arrive in a friend\'s name; she would do it and hand it over to them. Their account, then her hand. <em>Woh khatron mein kaam karna tha.</em> That was the kind of risk one had to take. She did it this way for years — three different people\'s names before the fourth time, when she registered under her own name and stayed there. When she speaks about those years, there is no self-pity. She states it like a system she devised and operated.',
+  scene_ghar: {
+    location: 'Memory — joint family, early years of marriage',
+    text: 'She married at sixteen. The sasural was a large joint family. The work was hers alone: cooking for everyone, carrying water so the nands and saas-ji could bathe, picking up dishes from wherever people left them. <em>Jahan khaya wahin rakh lete, toh utha leti main.</em> She ate at eleven in the morning — after everyone else was fed. Then from noon she studied, by chimney light, till two in the morning. She had been preparing for the ANM exam — <em>usme form bhara tha, selection bhi ho gayi thi</em> — but the paperwork went through her husband and father and then back, and by the time it circled back, the time was gone.',
     choices: [
-      { text: 'Ask about the first exhibition — the first time she stepped out under her own work.', next: 'scene_pehli_exhibition' },
-      { text: 'Ask what it took to keep going — when no one stood beside her.', next: 'scene_harne_nahi' }
+      { text: 'Ask about the ANM — the selection that slipped away.', next: 'scene_ANM' },
+      { text: 'Ask about the silai — how she earned for the children.', next: 'scene_silai' }
     ]
   },
 
-  scene_teen_baar: {
-    location: 'Memory — Hathipole and beyond',
-    text: 'Three names before her own. She doesn\'t tell this slowly — she lists it: first time someone else\'s name. Second, another\'s. Third, another\'s. Fourth time, she registered in her own name. She spent five years working through that registration. <em>Teen baar aur logon ke naam se kiya, phir khud ke naam se.</em> Three times through others, then mine. It is the most compressed account of ten years of work she will give. She says it and moves on.',
+  scene_silai: {
+    location: 'Memory — Hiranmagri, Udaipur',
+    text: 'Her husband\'s salary went to friends and to his own pocket. His father had not saved a rupee from five years of service. She found out the way you find out: when something was needed and nothing was there. So she did silai. Stitching. <em>Bacche ki fees pehle bharti baad mein aur light bill connection nahi katne deti andhere mein kaise soyenge.</em> The fees first, then the electricity. Food: <em>chatni roti kha lenge koi baat nahi.</em> Chutney and roti, no problem. She kept the light on. She kept the children in school.',
     choices: [
-      { text: 'Stay with this — what it meant to finally use her own name.', next: 'end_khud_ke_naam_pe' },
-      { text: 'Ask about the first exhibition — the first time she went out publicly.', next: 'scene_pehli_exhibition' }
+      { text: 'Stay here — the needle, the school fees, what it cost.', next: 'end_silai' },
+      { text: 'Ask about her children — what they became.', next: 'scene_bacchon' }
     ]
   },
 
-  scene_pehli_exhibition: {
-    location: 'Exhibition ground, Udaipur',
-    text: 'A madam from a training session said: go — you have artisans, you have stock, set up a stall. She had never done an exhibition. She went anyway, sourced goods from another shop to fill the stall, and sat for seven days. People would come and ask if anything had sold. Very few things had. <em>Par baithi rahee.</em> She sat there anyway. She wanted to learn — whatever anyone said, sit here. After sitting like that again and again, she began finding openings.',
+  scene_ANM: {
+    location: 'Memory — Kherwada tehsil',
+    text: 'In 1981, while she was in Kherwada, she filled the ANM form. The selection came. But the process for going anywhere went through her husband, who went to her father-in-law, who asked someone else — by the time permission moved through all those hands, the window had closed. She is matter-of-fact about it now. She does not linger. But she says it: <em>mujhe dukh nahi hoga ma\'am?</em> How would she not feel it? Her class 9 friends — Pushpa Damor is a lecturer at MG College. Rashida Damor is a doctor at General Hospital. They were in the same class. The same class.',
     choices: [
-      { text: 'Stay here — seven days, nothing selling.', next: 'end_saat_din' },
-      { text: 'Ask what she is building toward — Delhi, Hyderabad, the bigger plan.', next: 'scene_future' }
+      { text: 'Stay here — what she feels about what she missed.', next: 'end_ANM' },
+      { text: 'Ask about her children — the ones she kept in school.', next: 'scene_bacchon' }
     ]
   },
 
-  scene_women_problems: {
-    location: 'Meeting space, Hiran Magri, Udaipur',
-    text: 'Some women are being beaten at home. She knows. They don\'t always say it in the group — they say it separately, when alone. <em>Ek dukh bat jaata hai,</em> but only once trust is built. In the meeting, the face says nothing is wrong. Afterwards the story comes. The group does not remove them. Hardship can come for anyone at any time. These women — if you take a loan from a bank, the bank does not understand your condition. Here, if things are tight, you can pay less. It is not like that elsewhere.',
+  scene_bacchon: {
+    location: 'Hiranmagri, Udaipur',
+    text: 'Four children. Her elder daughter is a sarkari teacher. Her younger daughter is a District Officer at Max Life Insurance in Ahmedabad — her son-in-law is in the same company, one grade above her. <em>Couple mein bohot achha kaam hota hai.</em> They travel together, work together, go to the in-laws at Shyamlaji at one-thirty at night. Her son is at ICICI Bank in Madhuban. She says all of this quickly, not slowly — as if listing the contents of a room she has already put in order. She did the stitching. She kept the lights on. They studied.',
     choices: [
-      { text: 'Ask about the women who will not step outside — what stops them.', next: 'scene_women_fear' },
-      { text: 'Ask how she started — how she herself found the way to work despite everything.', next: 'scene_secret' }
+      { text: 'Stay here.', next: 'end_bacchon' },
+      { text: 'Ask about the friends she went to school with — who they became.', next: 'scene_saheliyan' }
     ]
   },
 
-  scene_women_fear: {
-    location: 'Hiran Magri, Udaipur',
-    text: 'Two days ago she held a meeting. Women with degrees, recently married. She asked if they wanted to do some work. The answer was only: give us work we can do at home. <em>Bahar nahi jaana, bahar nahi jaana.</em> They did not want to step out. She asked herself: why did they study? And when she sits alone with these same women, they say their husbands taunt them — go and earn something, see if you can. They want to work. But they have been told so many times <em>how will you manage</em> that the question has become their own.',
+  scene_saheliyan: {
+    location: 'Memory — Class 9, Udaipur',
+    text: 'They were in the same class in ninth. Pushpa Damor, Rashida Damor. One became a lecturer at MG College. One became a doctor at General Hospital. <em>Aaj doctor aur engineer aur professor — professor hai toh mujhe dukh nahi hoga ma\'am?</em> She asks it not bitterly but honestly. She is doing private field work now — twenty thousand a month, a supervisor who calls at three in the afternoon to ask how many receipts she has cut. The receipts question. After everything she has done — the ANM that slipped, the free years, the stitching, the fifty joinings a day, the city-wide network — someone is calling to ask about receipts.',
     choices: [
-      { text: 'Stay here — where that fear starts, what puts it there.', next: 'end_andar_se_dara' },
-      { text: 'Ask about her own beginning — when she fought and nobody stood beside her.', next: 'scene_harne_nahi' }
-    ]
-  },
-
-  scene_harne_nahi: {
-    location: 'Hiran Magri, Udaipur',
-    text: '<em>Kisine saath nahi diya.</em> No one stood by me. When things were difficult at home, the family criticised more than they helped. No one came. No one brought food. No one asked about money. She shared her problems once or twice. Then she stopped. <em>Koi fark nahi padta mujhe kisi ki baaton se.</em> It no longer makes any difference to her what anyone says. This is not bitterness. It is a conclusion. She says it clearly, not loudly.',
-    choices: [
-      { text: 'Stay here — what she built in that silence.', next: 'end_koi_fark_nahi' },
-      { text: 'Ask what she is building toward — the next plan.', next: 'scene_future' }
-    ]
-  },
-
-  scene_future: {
-    location: 'Hiran Magri, Udaipur',
-    text: 'Delhi, Mumbai, Hyderabad — wherever exhibitions are held. She has artisans. She has stock. She needs capital, and she is working out where it comes from. She is still entangled somewhat in family matters and cannot leave yet. But she has a hall upstairs, she has women who save five hundred rupees a month, she has her elder son who manages the house when she goes. <em>Bacche samajh gaye ab.</em> The children understand now. When she goes, the house runs.',
-    choices: [
-      { text: 'Stay here.', next: 'end_bacche' }
+      { text: 'Stay here.', next: 'end_saheliyan' }
     ]
   },
 
   /* ---- ENDINGS ---- */
 
-  end_ek_dukh: {
+  end_network: {
     ending: true,
-    type: 'Ending — The Meeting',
-    title: 'Ek Dukh Bat Jaata Hai',
-    body: "Eight groups. Ten meetings a month. Two hundred or more women who save five hundred rupees each month into a pool that becomes loans when someone needs one. The hall upstairs is hers. The purpose she gives for all of it is not money — it is that when you sit together, shared sorrow is halved. Someone will say something that matters; something that could not be said at home. The group does not remove difficult people. It holds them. The purpose of the group, she says, is to keep people bound to one another.",
-    note: '"Ek dukh bat jaata hai." A shared sorrow is halved. She says it like a principle she has proved by observation.'
+    type: 'Ending — The Circle',
+    title: 'Har Gali Har Mohalle',
+    body: "She went to every lane. Every mohalla in Udaipur. Not for a salary — two rupees for travel, nothing more. She went because she had made going into a habit. And what you build when you go without an agenda, without a project deadline, is different from what organisations build. You become theirs. Women who needed something called her. Women who knew something told her. Women who were in trouble came. Years of this built something that has no name and no register — only phones, only memory, only the fact that she answered. She is still the person they call.",
+    note: '"Mera itna acha circle ban gaya Udaipur ke har gali har mohalle, har lady se itna ghar jaisa apne real sister jaisa sambandh ho gaya." She says "real sister." Not a figure of speech.'
   },
 
-  end_khud_ke_naam_pe: {
+  end_ek_rupiya: {
     ending: true,
-    type: 'Ending — The Registration',
-    title: 'Khud ke Naam pe',
-    body: "Three names before her own. She worked through the orders of three different people — her work, their accounts, then the money to her. She says it fast, the way you list steps in a procedure. The fourth time she registered under her own name and spent five more years building from there. When she finally says it — my own name — there is no flourish. She has said this before. She will say it again. It is a fact she arrived at very slowly and now holds very simply.",
-    note: '"Teen baar aur logon ke naam se kiya, phir khud ke naam se." Three times through others. Then mine.'
+    type: 'Ending — The Free Years',
+    title: 'Ek Rupiya Nahi Milta Tha',
+    body: "For years she worked for nothing — two rupees for the bus, nothing more. She went house to house. She connected women to schemes, to each other, to resources they hadn't known existed. The NGO took what she brought them and called it their project. She did not call it anything. She just went. From that time: a city-wide network of women who call her when something happens, who refer each other to her, who have stayed in contact through every job she has had since. She gave them nothing that cost money. She gave them her time and she showed up.",
+    note: '"Shuru se mahila sangathan mein kaam kiya aur ek rupiya nahi milta tha, sirf mahilao ki help ki maine." Years of free work. She says it to explain the circle that came after.'
   },
 
-  end_saat_din: {
+  end_sahara: {
     ending: true,
-    type: 'Ending — The Exhibition',
-    title: 'Saat Din Baith ke Dekh Li',
-    body: "Seven days at a stall she'd never set up before, selling goods she'd sourced from another shop because her own stock wasn't enough. People came and asked if anything had sold. Very few things had. She sat there anyway. She wanted to learn — whatever anyone said, she would sit. After doing this again and again at different exhibitions, she started finding openings. She says it without drama: she sat there for seven days and watched. That was a beginning.",
-    note: '"Par baithi rahee." But she sat there anyway. She had gone with almost nothing. She stayed for seven days.'
+    type: 'Ending — The Knowledge',
+    title: 'Chota-Chota Kaam Karne Se Knowledge Ho Gaya',
+    body: "A newspaper ad. Two rupees at a PCO. Sahara Insurance. Then BRG — fifty joinings in a day at her peak, four hundred rupees each. Then Safe Shop — twenty to thirty thousand rupees a week from the team she had built. She moved through these not randomly but systematically: each one taught her something the last one hadn't. How to build a team. How to collect. How to close. How to read which women would follow through and which would take the first instalment and disappear. She says simply: from small work, knowledge comes. She has a lot of knowledge now.",
+    note: '"Kyunki chota-chota kaam karne se kya hota, knowledge ho gaya." Small work, large knowledge. She moved through Sahara, BRG, Safe Shop — each teaching her the next thing.'
   },
 
-  end_andar_se_dara: {
+  end_silai: {
     ending: true,
-    type: 'Ending — The Fear Inside',
-    title: 'Andar se Daraa Diya',
-    body: "They do not want to step outside, these women with degrees who came to her meeting and asked only for work they could do at home. She has watched this fear closely. It does not come from outside — it comes from inside the house itself. Someone keeps telling them, over and over: how will you manage, how will you manage? And so from within, it becomes: perhaps I won't be able to. They live inside this fear. The question was first installed by someone they live with.",
-    note: '"Andar se daraa diya." The fear was installed from within. She says it without judgment — just diagnosis.'
+    type: 'Ending — The Needle',
+    title: 'Chatni Roti Kha Lenge',
+    body: "She did the stitching while her husband's salary went elsewhere. She paid the school fees first — the school fees, then the electricity bill, because without light how do children study? Food she was not worried about. Chutney and roti, no problem. She had learned from her own mother how to run a house on very little and still give children everything they needed. Two daughters and two sons went to school and stayed in school and did not drop out. One became a teacher. One became a district officer in Ahmedabad. One went to ICICI Bank. She kept the needle moving. They kept going.",
+    note: '"Bacche ki fees pehle bharti baad mein aur light bill connection nahi katne deti. Chatni roti kha lenge koi baat nahi." Fees first. Light bill second. Food she would manage.'
   },
 
-  end_koi_fark_nahi: {
+  end_ANM: {
     ending: true,
-    type: 'Ending — The Silence She Learned',
-    title: 'Koi Fark Nahi Padta',
-    body: "No one stood by her. For years she worked in secret, through other people's accounts, in the cracks of a house that did not want her to work. When she had difficulties, no one came. No one brought food. No one asked how she was managing. She shared her situation once or twice — with family, with people around her — and the advice was always the same: if there is conflict because of the work, give up the work. She stopped sharing. Now she says: it no longer makes any difference to me what anyone says. She says it quietly. It is a hard thing that became comfortable.",
-    note: '"Kisine saath nahi diya." No one stood by me. She fought for many years. Now she says she no longer needs anyone to say anything. Both things are true.'
+    type: 'Ending — The Form',
+    title: 'Form Bhara Tha, Selection Bhi Ho Gayi Thi',
+    body: "She had filled the ANM form. The selection came. But going anywhere required permission — from her husband, who asked his father, who asked someone else — and by the time it circled back, the time was gone. She had been studying by chimney light from midnight to two in the morning. She had been eating at eleven after serving everyone else. She had been carrying water for baths. She had been filling the form in the hours that were left. The form went nowhere. She does not dwell on it. She says: how would she not feel it? And then she moves on to the next thing, which is what she always does.",
+    note: '"Form bhara tha, selection bhi ho gayi thi." The selection came. The permission didn\'t. She says this and moves on quickly, the way you move past something you have already made your peace with.'
   },
 
-  end_bacche: {
+  end_bacchon: {
     ending: true,
-    type: 'Ending — Who Stayed',
+    type: 'Ending — What Stayed',
     title: 'Bacche Samajh Gaye',
-    body: "For a long time no one stood by her. She fought alone — her work in other people's names, her savings in other people's accounts, her plans kept inside herself. Then slowly, over the last year or two, her elder son became her support. Now when she goes to an exhibition, he manages the house. When there is work to do online, the two of them sit and do it together. She says: because of him, I no longer need to say much to anyone else. That is the size of what shifted.",
-    note: '"Bacche samajh gaye ab." The children understand now. Her son became her support. She says it like it surprised her, though perhaps it did not.'
+    body: "Elder daughter: government teacher. Younger daughter: District Officer at Max Life in Ahmedabad, her husband one grade above her in the same company — they travel together, work together, go to the village to see his parents at one-thirty in the morning and think nothing of it. One son at ICICI Bank. She lists them quickly, not slowly. She kept the lights on. She paid the school fees first and the electricity bill second and ate last at eleven in the morning after the whole joint family had been fed. She did the stitching. She went to every lane. She was always the one still standing.",
+    note: '"Badi wali beti sarkari teacher hai. Usse choti wali... Max Life mein District Officer pad pe hai. Couple mein bohot achha kaam hota hai." She lists their lives the way you read out something you built carefully and are quietly glad about.'
+  },
+
+  end_saheliyan: {
+    ending: true,
+    type: 'Ending — The Same Class',
+    title: 'Ek Hi Class Mein Thi',
+    body: "She and Pushpa Damor sat in the same class in ninth standard. Pushpa Damor is now a lecturer at MG College. Rashida Damor — also same class — is a doctor at General Hospital. She says this directly: how would she not feel it? She does not ask for sympathy. She states a fact. She is doing private field work now, twenty thousand a month. A supervisor calls at three in the afternoon and asks how many receipts she has cut. This, after the ANM that slipped away, after the free years in the sangathan, after the fifty joinings in a day, after the city-wide network, after all four children. The receipts question. She answers it.",
+    note: '"Aaj doctor aur engineer aur professor — professor hai toh mujhe dukh nahi hoga ma\'am?" Pushpa Damor, Rashida Damor. The same class. She says this and keeps going.'
   }
 
 };

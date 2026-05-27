@@ -2,97 +2,88 @@ const story = {
 
   start: {
     location: 'Aamba Colony, Udaipur',
-    text: 'Her room is meticulous — floor swept, bed pressed flat. Above the door hangs a framed photograph of Khatu Shyam ji in blue and gold. She sits with her feet bare. When you notice, she waves it off. <em>Prarthna hai. Jab kaam hoga tab pehnungi.</em> A prayer. When the work is done, she will wear them again.',
+    text: 'Her phone rings mid-sentence. She glances at the screen, sets it face down. <em>Sikar se hoga.</em> Sikar, probably. She says it the way you mention something that happens often. On the wall: a framed photograph of Khatu Shyam ji. You notice it. She sees you notice. <em>Main toh Shyam ji ka shukriya ada karti hun. Mujhe aaj din tak kabhi itni takleef nahi di hai. Kabhi bhi.</em> She has been thanking God for a long time. She has also been waiting for one thing.',
     choices: [
-      { text: 'Ask about the prayer — what work she is waiting for.', next: 'scene_khatu' },
-      { text: 'Ask about the work she does — where she has been.', next: 'scene_hih_intro' }
+      { text: 'Ask about Shyam ji — what she has been waiting for.', next: 'scene_shyam' },
+      { text: 'Ask about the work — what she has done in the field.', next: 'scene_kaam' }
     ]
   },
 
-  scene_khatu: {
+  scene_shyam: {
     location: 'Aamba Colony, Udaipur',
-    text: 'Every eleventh of the month, for years. She would go by train, by bus, by whatever she had. Once she had no money at all — she had told Shyam ji to arrange it if he wanted her there. Fifteen thousand rupees appeared two days before departure. She went. She has always gone. <em>Bhagwan se jhagda karke aayi hun.</em> Two months ago she came back from a fight with God.',
+    text: '<em>Toh bas yahi hai ek meri wo jo main prarthna hai, wo sweekar kar lo bas.</em> One prayer. She says it and then laughs at herself. <em>Wohi shaadi ki hi maang ke aayi thi main toh.</em> Marriage. That was what she went to the temple for — that is what she carries when she goes. She has had her parents, her degree, her five years in the field, her Nagar Nigam job, her three thousand women. She has one thing left to ask for. <em>Dhang ka mil gaya ladka toh kar lenge, nahi toh Jai Ram Ji ki.</em> If a decent man comes, she will marry. If not — God\'s will.',
     choices: [
-      { text: 'Ask about the fight.', next: 'scene_pariksha' },
-      { text: 'Ask who she found at the temple — what the prayer is for.', next: 'scene_beloved' }
+      { text: 'Ask about the prayer in more detail — what "decent" means to her.', next: 'scene_prarthna' },
+      { text: 'Ask about the first marriage — what happened at fourteen.', next: 'scene_bachpan' }
     ]
   },
 
-  scene_pariksha: {
+  scene_prarthna: {
     location: 'Aamba Colony, Udaipur',
-    text: '<em>Ab aapki pariksha main le rahi hun.</em> She has passed every test, she told him. Now she is testing God. She has asked for one thing, and until he delivers, she will not come to the temple. Her sandals sit where she left them. She prays each day. She does not go. <em>Bhale hi mann maar ke baithi hun. Iccha toh bahut hoti hai.</em> She is sitting with her heart forced still. The longing is very real.',
+    text: '<em>Main apni ladaai khud ladna chahti hun. Mujhe kisi ke sahare ki zaroorat nahi hai.</em> A marriage on her own terms — not a rescue, not a compromise. If things go wrong there will be no one to go to. Her parents are gone. A sister has her own life. <em>Mere maa-baap bhi nahi hain. Toh maine kaha, main mere hisaab se ladka dekhungi. Chahe other caste ho.</em> Any caste. She is not particular about that. She is particular about everything else: she will not step into something she cannot walk out of again.',
     choices: [
-      { text: 'Stay here — the vow, the bare feet, what she is waiting for.', next: 'end_barefoot' },
-      { text: 'Ask who she met at the temple — what the prayer is for.', next: 'scene_beloved' }
+      { text: 'Stay here — the shape of the life she is building toward.', next: 'end_prarthna' },
+      { text: 'Ask about the first marriage — why she knows what she is asking for.', next: 'scene_bachpan' }
     ]
   },
 
-  scene_beloved: {
-    location: 'Aamba Colony, Udaipur',
-    text: 'They met at Khatu Shyam ji. She says it plainly: <em>milaaya bhi Shyam ji ne hi hai hum dono ko.</em> The obstacle is caste. He is higher; she is lower. His family is in a village where the old customs still hold. She says she would accept anything — a road, one meal a day. <em>Woh road pe bhi rakhega na toh bhi rehne ke liye taiyaar hun. Par apna ghar toh apna hi hota hai.</em> She told God: you brought us together, now make the road.',
-    choices: [
-      { text: 'Ask about her first marriage — the one that ended long before this.', next: 'scene_divorce' },
-      { text: 'Ask about the work — HIH, what happened there.', next: 'scene_hih_intro' }
-    ]
-  },
-
-  scene_hih_intro: {
-    location: 'HIH field office, Girwa block, Udaipur',
-    text: 'Five years. She taught women: threading, stitching, small skills that could stack into something. While she was teaching, others on staff were photographing those same women and sending the photos to headquarters as proof of training. <em>Aapko toh sirf aage photo bhejna hai, mera payment aa jaayega, meri salary ban jaayegi. Yeh kaam hai aapka toh.</em> She said this directly to her supervisor. She always said things directly.',
-    choices: [
-      { text: 'Ask what happened when she said it — how it ended.', next: 'scene_hih_exit' },
-      { text: 'Ask about the women — what happened to them when she left.', next: 'scene_mahilayen' }
-    ]
-  },
-
-  scene_mahilayen: {
-    location: 'Neighborhoods across Udaipur',
-    text: 'She didn\'t tell them she was leaving. They found out. <em>Aapne madam chhoda, humein in-in se koi matlab nahi.</em> You left, we have nothing to do with any of these people. They stopped attending meetings. The new worker placed after her holds no sessions. Women still call her — even from Sikar — <em>madam haan bolo, yeh kaam.</em> She never gave them the organisation. She gave them herself.',
-    choices: [
-      { text: 'Stay here.', next: 'end_mahilayen' },
-      { text: 'Ask what happened at HIH — how it actually ended.', next: 'scene_hih_exit' }
-    ]
-  },
-
-  scene_hih_exit: {
-    location: 'HIH office, Udaipur',
-    text: 'They built a file against her: she doesn\'t work. Five years, and they said she doesn\'t work. She said it back: if I don\'t work, how did I last five years? <em>Koi ek mahine bhi nahi tikta hai.</em> No one lasts a month. She lasted five years. They did not give her a letter. Not a certificate. Not the one and a half lakh rupees they owed. She could have taken them to court. Everyone said so. <em>Kyun apan kisi ke pet pe laat maare.</em>',
-    choices: [
-      { text: 'Stay here — why she did not fight.', next: 'end_pet_pe_laat' },
-      { text: 'Ask about the work that came after — where she went next.', next: 'scene_jobs' }
-    ]
-  },
-
-  scene_jobs: {
-    location: 'Multiple locations — Udaipur and Jaipur',
-    text: 'After HIH: a finance company, six months. Then Jaipur — speech therapy for children with disabilities. Eight days to learn the work, six months in the classroom. Her sister\'s wedding. Three months of nothing. Then Nagar Nigam — levy collection, the garbage trucks. Field work, again. She grew up in Chittorgarh; she had never seen a village or an open field until HIH took her to Girwa block. <em>Woh knowledge bhi badh gaya. Vyavhaar bhi ho gaya.</em>',
-    choices: [
-      { text: 'Ask about what she is building now — the own business she mentioned.', next: 'scene_business' },
-      { text: 'Ask about the child marriage — before all this work, before Udaipur.', next: 'scene_divorce' }
-    ]
-  },
-
-  scene_divorce: {
+  scene_bachpan: {
     location: 'Memory — Chittorgarh',
-    text: 'Fourteen, or fifteen. She did not understand what marriage was. Children played; she played with children. Her family took her to a sasural. She ran home. They took her back. She ran home again. <em>Maine us ladke ko bhi thappad maar diya.</em> He reached for her hand; she slapped him. The divorce came in six months. Others take six years. She prayed his next life would be good. It was. <em>Uski shaadi ho gayi, aaj uske do bachhe. Main khush hun.</em>',
+    text: '<em>Main bachha buddhi thi. Shaadi kya hoti hai, kuch nahi samjhti thi.</em> She played with children. Her family took her to the sasural — she was fourteen or fifteen. She ran home. They took her again. She ran home again. <em>Maine toh us ladke ko bhi thappad maar diya.</em> He reached for her hand; she slapped him. She told her in-laws directly, to their faces: <em>mujhe aapka beta pasand nahi hai, main toh nahi rahungi.</em> I don\'t like your son, I won\'t stay. The divorce came in six months. Others take six years.',
     choices: [
-      { text: 'Stay with this — what this marriage taught her about herself.', next: 'end_divorce' },
-      { text: 'Ask about what came after — the studying, the B.Ed.', next: 'scene_padhai' }
+      { text: 'Ask about what came after — the studying, the first job.', next: 'scene_padhai' },
+      { text: 'Ask about the work — HIH, the field, what she found there.', next: 'scene_hih' }
     ]
   },
 
   scene_padhai: {
     location: 'Memory — Udaipur',
-    text: 'Three years were lost in the middle — the court, the back and forth, the return. Then she told her parents: <em>main padhna chahti hun.</em> She had saved her own money from odd jobs. First year, second year, college. She was thinking idly — others do B.Ed, become teachers — and she took the exam as a stab in the dark. <em>Tukke mein exam diya.</em> First division. <em>Mera Bhagwan saath deta hai, sach mein deta hai.</em>',
+    text: 'With the court case behind her: she studied. School completed, then college on a private basis, then ITI in electronics — regular, alongside everything else. She took the B.Ed exam almost as a joke: <em>tukke mein exam diya.</em> A stab in the dark. She had been watching others prepare and thinking idly about it. First division. Then a job at Jatin ITI, meter parts — thirty-five rupees a day. She walked from her house to Pratap Nagar and back. Saved ten or twenty rupees. MA after that. <em>Isliye mere ko unn ladkiyon ka bahut saath deti hun — unka dard kya hota hai, main jaanti hun.</em>',
     choices: [
-      { text: 'Stay here — the studying and what she believes.', next: 'end_tukke' },
-      { text: 'Ask about the business she is planning now.', next: 'scene_business' }
+      { text: 'Stay here — the walking, the thirty-five rupees, what that taught her.', next: 'end_35_rupaye' },
+      { text: 'Stay with the B.Ed — the exam she took on a whim.', next: 'end_tukke' }
     ]
   },
 
-  scene_business: {
+  scene_kaam: {
+    location: 'HIH field office, Girwa block — Memory',
+    text: 'Before Nagar Nigam: Jaipur, speech therapy for children with disabilities. Eight days to learn the work, six months in the classroom. Before Jaipur: six months in microfinance — Nidhi group, loans for women. Before that: Hand in Hand, HIH, Girwa block, five years. And before all of it: a factory in Udaipur, thirty-five rupees a day. She had never seen a village before in her life. <em>Gaon, khet, paath — mere papa ki job thi, Chittor mein rehte the, school se ghar, ghar se school. Kabhi bahar nikalne hi nahi diya.</em> HIH gave her all of it at once.',
+    choices: [
+      { text: 'Ask about HIH — the five years, the women.', next: 'scene_hih' },
+      { text: 'Ask about what she found wrong there — what she could not stay quiet about.', next: 'scene_photos' }
+    ]
+  },
+
+  scene_hih: {
+    location: 'Girwa block, Udaipur district',
+    text: 'Five years. She taught women threading, stitching, small skills that could become something. The women came because of her. <em>Wo bole hum aapki taraf dekh ke meeting karte hain, baaki aapke sir wagaira se humse koi lena dena nahi.</em> Her supervisors were taking photographs of the same women and sending them to headquarters as proof of training that wasn\'t happening. She said it directly: <em>Aapko toh sirf aage photo bhejna hai, mera payment aa jayega, meri salary ban jayegi. Yeh kaam hai aapka toh.</em> She always said things directly.',
+    choices: [
+      { text: 'Ask about what happened when she said it — how it ended.', next: 'scene_photos' },
+      { text: 'Ask about the women — what happened when she left.', next: 'scene_mahilayein' }
+    ]
+  },
+
+  scene_photos: {
+    location: 'HIH office, Udaipur',
+    text: '<em>Mujhe jhooth se sakht nafrat hai. Jo hai munh pe bolti hun, chahe bura lage, chahe achha lage.</em> She said what she saw. They built a file against her: she doesn\'t work. Five years, and the file said she doesn\'t work. <em>Aaj koi kaam nahi karta, ek mahina bhi nahi tikta hai. Maine toh paanch saal kaam kiya.</em> No one else lasted a month. She lasted five years. They showed her the door without a letter, a certificate, or the one and a half lakh rupees they owed. Everyone told her to file a case.',
+    choices: [
+      { text: 'Stay here — why she didn\'t.', next: 'end_kisi_ke_pet' },
+      { text: 'Ask about the women who are still calling.', next: 'scene_mahilayein' }
+    ]
+  },
+
+  scene_mahilayein: {
+    location: 'Neighborhoods across Udaipur, Sikar',
+    text: 'When she left, the women stopped. Not stopped going to meetings — stopped altogether. <em>Wo bole haan, aapne madam chhoda, hume in-in se koi matlab nahi. Wo meeting tak nahi karti.</em> The replacement placed by HIH holds no sessions. Women still call — from Udaipur, from Sikar — <em>madam haan bolo, yeh kaam.</em> She did not give them the organisation. She gave them herself. <em>Aaj main jaake khadi ho jau, das sekand mein ekatthi ho jayegi. Aaj humaare contact mein 3000 se 4000 mahilayein hain.</em>',
+    choices: [
+      { text: 'Stay here.', next: 'end_mahilayein' },
+      { text: 'Ask about the business — what she is building now.', next: 'scene_gulami' }
+    ]
+  },
+
+  scene_gulami: {
     location: 'Ahmedabad — upcoming, in her telling',
-    text: 'On the seventeenth she goes to Ahmedabad. A meeting about RUDI — ration distribution, small goods. She and a colleague are planning it together: <em>wo bole aap idea lagao, main kaam karungi.</em> She brings the strategy; her colleague brings the operations. Three to four thousand women across her network — Udaipur, Sikar, years of field contact. <em>Khud ka business khole. Kyun dusron ki gulami kare?</em> She says it like a conclusion she reached long ago.',
+    text: 'On the seventeenth she goes to Ahmedabad. RUDI — ration distribution, small goods. She and a colleague are planning it together. <em>Wo bole aap idea lagao, kaam main karungi.</em> She brings the thinking; her colleague brings the operations. The network is already there — three to four thousand women, Udaipur to Sikar, years of field contact, nothing on any spreadsheet. <em>Humara khud ka business khole na, toh bhi koi nahi puche. Bas paise ki kami hai. Baaki khud khol sakte hain.</em> She has already answered the larger question: <em>Khud ka business khole. Kyun dusron ki gulaami kare?</em>',
     choices: [
       { text: 'Stay here.', next: 'end_gulami' }
     ]
@@ -100,52 +91,52 @@ const story = {
 
   /* ---- ENDINGS ---- */
 
-  end_barefoot: {
+  end_prarthna: {
     ending: true,
-    type: 'Ending — The Vow',
-    title: 'Jab Kaam Hoga Tab Pehnungi',
-    body: "She has not worn shoes in two months. Not a punishment — a promise. When the work is done, she said, I will wear them again. The work is this: the marriage she wants, to a man she met at Khatu Shyam ji, of a higher caste, with a family in a village that follows the old ways. She told God: you brought us together, now you make the road. She prays every day. She does not go to the temple. Her feet are, she says, cleaner than those of people who wear sandals.",
-    note: '"Prarthna hai. Jab kaam hoga tab pehnungi." A prayer. When the work is done, I will wear them again. She has been barefoot for two months.'
+    type: 'Ending — The One Prayer',
+    title: 'Wo Sweekar Kar Lo Bas',
+    body: "She has asked Shyam ji for one thing. She laughs when she says what it is — marriage, that's all. She frames it carefully: not any marriage, a marriage she chooses. Her parents are gone. She will not go to a sister's door if things go wrong. If it goes badly there will be no one to run to, and she knows this because she has already run — at fourteen, from a sasural she didn't want, twice. She ran home. She got the divorce in six months. Now she knows exactly what she is asking for and she has been asking clearly. She continues to wait. In the meantime she works.",
+    note: '"Toh bas yahi hai ek meri wo jo main prarthna hai, wo sweekar kar lo bas. Wohi shaadi ki hi maang ke aayi thi main toh." One prayer. She said it and laughed.'
   },
 
-  end_mahilayen: {
+  end_35_rupaye: {
     ending: true,
-    type: 'Ending — The Network',
-    title: 'Aap Jaisa Vyavhaar Koi Nahi',
-    body: "She left and they stopped. Not just stopped going to meetings — they stopped altogether. The new worker placed in her position holds no sessions. Women call her still from Udaipur, from Sikar — not for the organisation but for her. She told them nothing when she left. They found out and drew their own conclusions. You left, so we have nothing to do with any of these people. They did not give their loyalty to the institution. They never had.",
-    note: '"Woh bolte hain aap jaisa vyavhaar koi nahi, kisi ka nahi hai." No one has a manner like yours. Said of her. Said to her. She continues working.'
-  },
-
-  end_pet_pe_laat: {
-    ending: true,
-    type: 'Ending — The Rule',
-    title: 'Kyun Apan Kisi ke Pet pe Laat Maare',
-    body: "They did not give her a letter on leaving. They did not give her a certificate. They did not pay the one and a half lakh she was owed. Everyone told her: file a case. She would have won the salary, won the compensation, sat at home and collected. She didn't. She said: why would I kick someone in the stomach? Not for their sake — she was clear about who was right. But she does not make her arguments through other people's livelihood. She blocked all their numbers after.",
-    note: '"Kyun apan kisi ke pet pe laat maare." Why would one kick someone in the stomach? She could have sued. She chose not to.'
+    type: 'Ending — Thirty-Five Rupees',
+    title: 'Pratap Nagar tak Paidal',
+    body: "Thirty-five rupees a day. She walked from her house to Pratap Nagar and back, saved ten or twenty rupees. This was after the divorce, after the ITI in electronics, after the B.Ed she took almost as a joke and passed with first division. She says now: that is why she has so much time for women who are struggling. She has walked the distance. She made the math of it — if you earn and spend everything there is nothing to show. The earning began early and has not stopped: factory work, speech therapy, microfinance, five years of field work, Nagar Nigam, and now a plan for Ahmedabad. Thirty-five rupees is where it started.",
+    note: '"Isliye mere ko unn ladkiyon ka bahut saath deti hun — unka dard kya hota hai, main jaanti hun." She walked to Pratap Nagar every day for 35 rupees. She has not forgotten the amount.'
   },
 
   end_tukke: {
     ending: true,
     type: 'Ending — The Exam',
-    title: 'Tukke mein Exam Diya',
-    body: "She took the B.Ed exam on a whim — tukke mein, a stab in the dark. She had been watching other people prepare and thinking idly about it. She passed. First division. God has always arranged things at the last possible moment: fifteen thousand rupees two days before a departure she had promised to make. PF money when there was nothing. A B.Ed when she was only watching others. She says this not as boasting but as testimony — witness to what she has seen happen to herself.",
-    note: '"Mera Bhagwan saath deta hai, sach mein deta hai." My God stands with me. Truly. She says it the way you state a fact you have seen confirmed many times.'
+    title: 'Tukke Mein Exam Diya',
+    body: "She took the B.Ed exam on a whim. She had been watching others prepare and thinking idly that perhaps she could do it. She had not seriously studied for it. She got first division. She says Shyam ji has always been like this — the money for a pilgrimage appeared two days before she needed it; the B.Ed score appeared when she wasn't trying. She does not say this to explain her own luck. She says it as someone reporting facts about a presence she has long depended on. The exam was a stab in the dark. The light was already there.",
+    note: '"Tukke mein exam diya." A stab in the dark — she took the B.Ed almost without trying. First division. She says this as testimony, not boasting.'
+  },
+
+  end_kisi_ke_pet: {
+    ending: true,
+    type: 'Ending — The Rule',
+    title: 'Kyun Apan Kisi ke Pet pe Laat Maare',
+    body: "They did not give her a letter, a certificate, or the one and a half lakh rupees they owed her. Everyone said: file a case. She would have won. She could have sat at home and collected. She didn't. She says it simply: why would she kick someone in the stomach? Not out of softness toward them — she was clear about who was right and who had wronged whom. But she does not make her arguments through other people's livelihood. She blocked all their numbers after she left. That was the end of it. She has not looked back.",
+    note: '"Kyun apan kisi ke pet pe laat maare." Why kick someone in the stomach? She chose not to sue for the salary owed. She blocked their numbers and moved on.'
+  },
+
+  end_mahilayein: {
+    ending: true,
+    type: 'Ending — The Network',
+    title: 'Das Sekand Mein Ekatthi Ho Jayegi',
+    body: "Three to four thousand women in her contact — from HIH, from microfinance, from Nagar Nigam, from years of field work across Udaipur and Sikar. None of it on paper. It lives in phones, in relationships, in the fact that she answered the last time. When she left HIH the women stopped attending altogether — they told the replacement worker they had no use for the organisation now. Women still call from Sikar for jobs. She says: if she stood in one spot today, they would gather in ten seconds. She says it without boasting. She is describing something she has observed about herself and finds simply true.",
+    note: '"Aaj main jaake khadi ho jau, das sekand mein ekatthi ho jayegi." Ten seconds. She has seen this happen and is reporting it accurately.'
   },
 
   end_gulami: {
     ending: true,
     type: 'Ending — The Plan',
-    title: 'Khud ka Business',
-    body: "Three to four thousand women in her network — from her time at HIH, from Nidhi, from Belstar, from years of field work across Udaipur and Sikar. None of it is on paper anywhere. It lives in phones of women who call because she answered the last time. On the seventeenth she goes to Ahmedabad to make a plan. Her colleague brings the operations; she brings the idea. The question she has already answered for herself: why do someone else's work when you can do your own?",
-    note: '"Khud ka business khole. Kyun dusron ki gulami kare?" Why be someone else\'s servant? The business is not yet open. The seventeenth is soon.'
-  },
-
-  end_divorce: {
-    ending: true,
-    type: 'Ending — What She Understood',
-    title: 'Shaadi ka Sukh Toh Dekha Hi Nahi',
-    body: "She was fourteen or fifteen. She didn't understand what marriage was. She slapped the boy when he reached for her hand. She ran home from his house twice. When the divorce came, it came in six months — others take six years. She prayed his next life would be good. It was. She knows. She says: I never saw the happiness of marriage. So for me, what does the word mean? She asks it the way you question the translation of a word that was never explained to you.",
-    note: '"Shaadi ka sukh toh dekha hi nahi." The happiness of marriage — I never saw it. She says it without self-pity, the way you state a gap in your education.'
+    title: 'Khud ka Business Khole',
+    body: "On the seventeenth she goes to Ahmedabad for a RUDI meeting. The business is not open yet. The network is already there — three to four thousand women across Udaipur and Sikar who are not on any organisation's register but who call because she picks up. Her colleague will handle the operations. She will handle the strategy. She has been doing this work for years for other people's salaries, other people's photo counts, other people's project closings. The question she has already answered for herself: why serve someone else's project when the women are already yours, when the idea is already yours, when the only missing thing is capital?",
+    note: '"Khud ka business khole. Kyun dusron ki gulaami kare?" Why be someone else\'s servant? The seventeenth is soon. The business is not yet open.'
   }
 
 };
