@@ -22,7 +22,7 @@ const story = {
     location: 'Pratap Colony, Udaipur',
     text: 'She pauses. <em>Meri beti ke naam pe rakhte hain.</em> Her daughter Siya — one month old. Siya is Sita: <em>Sita Ram.</em> The business — a Meesho account being set up today, nine candles on a shelf — is already named for a baby who cannot yet hold her own head up. <em>Siya\'s Candles.</em> She says the name the way you say something that was never in question.',
     choices: [
-      { text: 'Ask which colour she loves best.', next: 'scene_pink' },
+      { text: 'You look over at her son — trailing the kangaroo toy.', next: 'scene_veer' },
       { text: 'Ask how she came to be here — this city, this house, all of it.', next: 'scene_court' }
     ]
   },
@@ -58,7 +58,7 @@ const story = {
     location: 'Memory — Bundi, Rajasthan',
     text: 'Before the candles. Before the loan centers and the SHG lists. She was in class tenth in Bundi. <em>Mera sapna tha ki main police mein bharti hou.</em> She wanted to join the police. Her family had a different plan — a boy she had not chosen, who they said was fine. <em>Sage aise ladke ke saath kar di jo mujhe pasand hi nahi tha bilkul.</em> She was sixteen.',
     choices: [
-      { text: 'Ask about leaving Bundi.', next: 'scene_facebook' },
+      { text: 'Ask about the brother at the school gate — what leaving Bundi meant.', next: 'scene_bundi_bhai' },
       { text: 'Ask if she still wants to study — if any of that ambition survived.', next: 'scene_open_school' }
     ]
   },
@@ -84,7 +84,7 @@ const story = {
     location: 'Pratap Colony, Udaipur',
     text: 'The list is half in names, half in relationships. Remi. Madhu. Then: <em>Jagdish dada ri laadi</em> — Jagdish dada\'s wife. <em>Roshan dada ri laadi.</em> She calls two rooms over to ask a name; a voice answers. She writes it down. Some women she has known for years. Some she only knows how they are attached to men. <em>Ek bhi cheez miss nahi honi chahiye.</em> Nothing should be missed.',
     choices: [
-      { text: 'Ask about the loan centers she runs from home.', next: 'scene_center' },
+      { text: 'Stay with the list — nothing should be missed.', next: 'scene_ek_bhi_miss' },
       { text: 'Ask how she got here — this life, this city.', next: 'scene_court' }
     ]
   },
@@ -103,7 +103,7 @@ const story = {
     text: 'Once. Forty thousand rupees. First installment paid, then gone. <em>Pehli kisht bhari aur bhaag gayi woh.</em> The loan officer came back to the others in the group — women who had done nothing wrong — and they had to trail behind him through the neighborhood, door to door. Her name on the guarantee. Her network that had vouched. <em>Uske baad se.</em> After that, she changed the system.',
     choices: [
       { text: 'Ask how she rebuilt it.', next: 'scene_guarantee' },
-      { text: 'Ask if it made her doubt herself.', next: 'scene_kisi_se_nahi' }
+      { text: 'Ask how she changed the system after that.', next: 'scene_loan_reset' }
     ]
   },
 
@@ -129,7 +129,7 @@ const story = {
     text: '<em>Kisi se nahi mili.</em> No one helped. His family had land, standing, money. They gave nothing. Not once. <em>Bas mere husband hain aur main hoon. Dono ne kiya.</em> Just him and her — a girl from Bundi who had never been to this city, and a man who had grown up here but was starting over beside her. They cooked together. They decided together. They had one room.',
     choices: [
       { text: 'Ask about building the house from that one room.', next: 'scene_ghar_first' },
-      { text: 'Ask what she wants now, after all of it.', next: 'scene_geetanjali' }
+      { text: 'Ask what they were doing before — before the candles, before all of this.', next: 'scene_riko' }
     ]
   },
 
@@ -146,6 +146,51 @@ const story = {
     text: 'She has been there many times — as a visitor, watching. <em>Ladieson ki dekhbhal karna, mujhe achha lagta hai ye.</em> She wants to look after women patients. She spoke to a doctor there who said she would help. The plan: wait a year and a half, two at most, until Siya is bigger. Then go. <em>Mujhe yahi karna hai.</em> She said it once, then moved on to something else.',
     choices: [
       { text: 'Stay here.', next: 'end_geetanjali' }
+    ]
+  },
+
+  scene_veer: {
+    location: 'Pratap Colony, Udaipur',
+    text: 'He runs a circuit of the room with the stuffed kangaroo trailing behind him. Four years old. He does not shy from strangers — he looks at the interviewer directly and then goes back to his circuit. She says he knows the capitals and districts of India by heart. She taught him from the phone — state by state, district by district. <em>Apne jaisa hi hai — dhyan de toh jaldi seekh jaata hai.</em> He is like her that way. If he pays attention, he learns fast.',
+    choices: [
+      { text: 'Look over at the shelf — the nine candles, the name she chose.', next: 'scene_pink' },
+      { text: 'Stay here, with this.', next: 'end_veer' }
+    ]
+  },
+
+  scene_ek_bhi_miss: {
+    location: 'Pratap Colony, Udaipur',
+    text: 'She goes through the list methodically. A name. Then a relationship to a man — <em>Jagdish dada ri laadi, Roshan dada ri laadi.</em> Some women she has known for years; some she knows only by their attachment to a household. She calls into the next room to confirm a name; a voice answers and she writes it down. When she finishes a section she runs her finger back over it. <em>Ek bhi cheez miss nahi honi chahiye.</em> Nothing should be missed. Said once, quietly, like a rule that does not need repeating.',
+    choices: [
+      { text: 'Ask about the loan centers she runs from here.', next: 'scene_center' },
+      { text: 'Ask how she got here — this city, this life.', next: 'scene_court' }
+    ]
+  },
+
+  scene_loan_reset: {
+    location: 'Pratap Colony, Udaipur',
+    text: 'After the forty thousand, she changed the system. Only family now. Only women from this neighborhood, whose houses she has been inside, whose children she can name. Before every new loan she tells the officer directly: <em>Sir ke saamne bol do — yeh member hai, iska ghar dekho, iske documents dekho. Agar samjho toh do, nahi samjho toh mat do.</em> She says it the same way every time. And then she tells the borrower: I have introduced you. Whatever happens between you and the officer is between you. <em>Aage ka main zimmedaar nahi hoon.</em>',
+    choices: [
+      { text: 'Stay with this — the rule she made for herself.', next: 'end_loan_trust' },
+      { text: 'Go back to the moment — the forty thousand, the loan officer coming back.', next: 'scene_guarantee' }
+    ]
+  },
+
+  scene_bundi_bhai: {
+    location: 'Memory — Bundi, Rajasthan',
+    text: 'Every afternoon, without exception: her brother at the school gate. Not late, not sometimes — every day, at dismissal. The message was clear even without being said: the world outside school was not for her. No friends, no wandering, no staying back. Home, then school, then home. She understood what was being communicated. Facebook opened a window. A boy from Udaipur. Conversations the brother did not know about. A decision she made before anyone had a chance to make it for her.',
+    choices: [
+      { text: 'Stay here — the decision, before she had even seen his face.', next: 'end_bundi' },
+      { text: 'Go to the day itself — the first time she saw him.', next: 'scene_facebook' }
+    ]
+  },
+
+  scene_riko: {
+    location: 'Memory — industrial area, Udaipur',
+    text: 'Before the candles. Before the lending centers and the SHG lists. She and her husband both worked at a pharmaceutical company in the industrial area — packing, processing, shifts. They came home to one room. Two salaries, one room. <em>Dono ne kaam kiya.</em> Both of them working from the start. She stopped when the pregnancy made it difficult — first Veer, then eventually the decision to be home. But it had been two incomes. That is how the house began. Not from his salary alone.',
+    choices: [
+      { text: 'Ask about building the house from that — from two salaries and one room.', next: 'scene_ghar_first' },
+      { text: 'Stay here.', next: 'end_riko' }
     ]
   },
 
@@ -197,6 +242,38 @@ const story = {
     title: 'Ladieson ki Dekhbhal Karna',
     body: "She wants to work at a large hospital in the city. She has visited many times, watching. She wants to care for women patients — check on them, ask how they are. She has spoken to a doctor there who said she would help get her in. The plan is to wait until Siya is bigger — a year and a half, maybe two. Then go. When you ask why this, she does not say salary or proximity. She says: mujhe achha lagta hai. It feels right to look after someone.",
     note: '"Mujhe yahi karna hai." This is what I want to do. She said it once and moved on.'
+  },
+
+  end_veer: {
+    ending: true,
+    type: 'Ending — Ek Ladka, Ek Ladki',
+    title: 'Apne Jaisa Hi Hai',
+    body: "Her son is four. He knows the capitals and districts of India from a phone screen — she taught him state by state, and he learned it because he was paying attention. Her daughter is one month old and cannot yet hold her own head up. Between them: a business named for the daughter, an account set up today, nine candles on a shelf that have not sold yet. She teaches her son the way she was taught by no one — you pay attention or you don't. He pays attention. She says he is like her that way.",
+    note: '"Apne jaisa hi hai — dhyan de toh jaldi seekh jaata hai." If you pay attention, you learn fast. She said it about her son. She was describing herself.'
+  },
+
+  end_loan_trust: {
+    ending: true,
+    type: 'Ending — The Rule She Made',
+    title: 'Pehli Kisht Bhari Aur Bhaag Gayi',
+    body: "She paid the first installment and disappeared. Forty thousand rupees. The loan officer came back not to the woman who had run — she was gone — but to the others who had done nothing wrong, the group she had helped form, the women whose names were on the same list as hers. She walked behind the officer door to door through the neighborhood. After that, she changed everything: only family, only this neighborhood, only women whose houses she has been inside. She tells the officer her part and the borrower her part and then she steps back. Whatever happens between them is between them.",
+    note: '"Dar lagta hai na — koi kisht leke bhaag jaave toh inhone karwaya tha." Fear is something she learned from a specific event. She rebuilt from it.'
+  },
+
+  end_bundi: {
+    ending: true,
+    type: 'Ending — The Gate',
+    title: 'Chutti Hote Hi Bhai Lene Aa Jaata Tha',
+    body: "Every afternoon. School dismissal. Her brother at the gate. She went home. The world outside was communicated clearly to her, without being stated: it was not for her. No friends, no wandering, no time that was hers. She was in class tenth. She found a way. Facebook, a boy from this city she had never met, conversations no one knew about. A decision made before anyone could make it for her. She was sixteen when she decided. She had not yet seen the face of the person she was deciding toward.",
+    note: '"Chutti hote hi bhai lene aa jaata tha." Every afternoon, without fail. She understood what it meant. She made a different plan.'
+  },
+
+  end_riko: {
+    ending: true,
+    type: 'Ending — Dono Ne Kiya',
+    title: 'Dono Ne Kiya',
+    body: "Before the candles. Before the lending centers, the SHG lists, the Meesho account with nine candles and no sales yet. She and her husband worked at a pharmaceutical company in the industrial area — packing, processing, two salaries coming into one room. She stopped when pregnancy made it difficult. But the house — the one where the tiles are still being laid, where she painted the walls herself in the colours she chose, where a business is being built from a shelf — began with two incomes, not one. His family gave nothing. They built it themselves. Both of them. From one room.",
+    note: '"Bas mere husband hain aur main hoon. Dono ne kiya." Just him and her. Both of them. She says this about the beginning and it is still true now.'
   }
 
 };

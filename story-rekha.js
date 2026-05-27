@@ -74,7 +74,7 @@ const story = {
     text: `Fifty grams per child per meal, and not one bowl could wander — not one katori over or under, or someone went hungry or something was wasted. <em>"Per bacche ka gram ke hisab se kabhi ek katori idhar se udhar nahi aati thi meri."</em> Not one bowl ever wandered at her center. She mastered it in two months. And then parents began calling: can you make extra khichdi? They liked what she cooked. She laughs: <em>"Main khud hi nahi soch pati thi ki main kaisa banati hoon."</em> She still doesn't know what she did to it. She just — paid attention.`,
     choices: [
       { text: 'Let this moment hold.', next: 'end_extra_khichdi' },
-      { text: 'Ask what came after the daycare ended.', next: 'shg_200' }
+      { text: 'Ask how the daycare ended — the last day, the children going home.', next: 'scene_daycare_close' }
     ]
   },
 
@@ -90,7 +90,7 @@ const story = {
     location: 'The home',
     text: `After the daycare: she ran a self-help group. Two hundred members — women from the neighborhood and the nearby settlement. She linked them to a local savings organization, run by a man in the area. For two, three years money moved — deposits, fixed deposits, interest. She put in four FDs herself, one lakh each. Her own money. <em>"Meri khud ki personal."</em> Four lakhs. The man worked beside them for nearly three years. January 2021. And then he was gone.`,
     choices: [
-      { text: 'Ask what "gone" looked like — how she found out.', next: 'sarvodaya_man' },
+      { text: 'Ask about those years before — the meetings, the two hundred women, what it was.', next: 'scene_shg_early' },
       { text: 'Ask what she did when the money did not come back.', next: 'fraud_day' }
     ]
   },
@@ -160,8 +160,8 @@ const story = {
     location: 'The home',
     text: `A young man from the neighborhood — troubled himself, prone to his own depressions — came one day with his mother to visit. He sat with her. He asked: aunty, how are you? She began to cry. He prayed for her. She says: <em>"Mujhe aisa laga ki meri sab tension door ho gayi."</em> As if it left. She does not say this as miracle. She says it as a fact about weight lifting. Then a woman named Sandhya — a Christian, a ration supplier — came and said: come with me, we'll do it together. I'll find you an order. The first orders out of the house. The first steps.`,
     choices: [
-      { text: 'Ask about the ration contract — how the real work started again.', next: 'arth_ngo' },
-      { text: 'Ask about her mother — she mentioned her mother\'s retirement money was in the savings organization deposits.', next: 'mummy_paisa' }
+      { text: 'Ask about her mother — she was an ANM nurse, decades of it.', next: 'scene_mummy_anm' },
+      { text: 'Ask about the ration contract — how the real work started again.', next: 'arth_ngo' }
     ]
   },
 
@@ -170,7 +170,7 @@ const story = {
     text: `Sandhya knew a doctor — a gynecologist running a small NGO hospital, based out of state. He heard the story. He gave her a one-year contract: supply ration for the hospital. Rs 10,000 a month. <em>"Dheere-dheere dheere-dheere fir ek saal unke sang nikla."</em> Slowly, slowly, a year passed. Then his transfer came. She stayed — now attached to the parent NGO, still supplying. She began going directly to the mandi for stock. She built contacts. She says: ab main khud koshish karti hoon. Now I try myself.`,
     choices: [
       { text: 'Ask about her mother — her retirement savings went into this too.', next: 'mummy_paisa' },
-      { text: 'Ask about the conscience — the debt toward the two hundred members.', next: 'atma_gawahi' }
+      { text: 'Ask about going to the mandi directly — building contacts, buying at source.', next: 'scene_ration_mandi' }
     ]
   },
 
@@ -266,6 +266,50 @@ const story = {
     title: '"Aaj nahi milega toh kal milega"',
     body: `Her husband asked her once what the point was — all the running, the carrying, the orders that cancel. She told him: aaj nahi milega toh kal milega. Today it won't come; tomorrow it will. She was not young when she said this. She had just spent a year inside without stepping out. Before that, five years feeding construction workers' children gram by gram, measuring every meal to the bowl. Before that, a fraud that took four lakhs of her own money and her mother's retirement and a year of her life. She said it from somewhere those things had not reached. Whatever is there — it is still there.`,
     note: `"Aaj mehnat karungi toh uska fal kal milega." — Rekha`
+  },
+
+  scene_daycare_close: {
+    location: 'The home — memory of the last day',
+    text: `The NGO's funding cycle ended. They told her a month before. The last day — parents came to collect at four o'clock as usual, the way they always did after the construction site shift. She gave each child back. She does not describe it dramatically. She says: the children went home and the room was quiet. What she took from five years: the gram calculations, the seven o'clock start, the habit of precision, the understanding that you can manage twenty-five things at once if you pay attention to each one in order. She did not know yet what any of that was for. She found out later.`,
+    choices: [
+      { text: 'Stay here — this ending, this beginning.', next: 'end_extra_khichdi' },
+      { text: 'Ask what came after — the self-help group, the savings, the two hundred women.', next: 'shg_200' }
+    ]
+  },
+
+  scene_shg_early: {
+    location: 'Memory — the neighborhood, several years before January 2021',
+    text: `Two hundred women. She ran the meeting side — who had deposited, whose fixed deposit was due, which new member was joining, who needed a reminder. She was meticulous from the daycare years: you do not wander with other people's money the way you do not wander with a child's gram weight. The man handled the accounting at his office. She handled the women in the neighborhood. They told her things they did not tell banks — when money was short, when a husband was difficult, when the deposit would be late because of a family wedding. She was there for those things. The trust was real. That is what made everything that followed possible.`,
+    choices: [
+      { text: 'Ask about the man — when she first noticed something was wrong.', next: 'sarvodaya_man' },
+      { text: 'Ask about the day it collapsed — the letter, the lane, the chair.', next: 'fraud_day' }
+    ]
+  },
+
+  scene_mummy_anm: {
+    location: 'Memory — her mother\'s career',
+    text: `Her mother was a community health worker — ANM — for decades. House visits, injections, deliveries. Weighing infants. Measuring medicine. She retired after a full career with three and a half lakh rupees in savings. When Rekha was learning gram calculations in training — fifty grams per child, not one bowl wandering — something clicked. Her mother had lived her whole career in precise measurement. <em>"Mummy ka toh poora career hi tha — ghar ghar jaana, bachche dekhna."</em> Going house to house. Looking after children. And then her daughter did the same thing for five years. Without knowing it was the same thing.`,
+    choices: [
+      { text: 'Ask about what those savings became — the fraud, the loss.', next: 'mummy_paisa' },
+      { text: 'Stay here — this, the thing that was already in her.', next: 'end_mummy_anm' }
+    ]
+  },
+
+  scene_ration_mandi: {
+    location: 'A wholesale market, Jaipur',
+    text: `She started going directly — to the wholesale market where rice and lentils and oil come in from trucks. She did not know it at first. She stood and watched who the honest sellers were. She learned which days prices shifted. She learned who to call when she needed a hundred kilos at short notice. She bargained. She was not good at it at first; she got better. Now she has contacts — merchants who call when something she stocks comes in at a good price. The mandi is not comfortable. The sacks are heavy. She goes early. The work is physical in a way that does not match the cancer. She does not mention the cancer there. She just buys what she needs and comes back.`,
+    choices: [
+      { text: 'Ask about the conscience — the debt she still carries to the two hundred members.', next: 'atma_gawahi' },
+      { text: 'Ask about the liquid cleaner dream — the Ahmedabad kit.', next: 'liquid_dream' }
+    ]
+  },
+
+  end_mummy_anm: {
+    ending: true,
+    type: 'Encounter / Participant 04',
+    title: '"Mummy ka toh poora career hi tha"',
+    body: `Her mother was an ANM nurse for decades — house visits, precise measurements, children weighed and medicine measured. She retired with three and a half lakh rupees saved. Those savings went into the fraud when her daughter trusted the wrong man. Rekha made the connection only later: when she was crying in that training room over gram calculations, some part of the precision had always been there. Her mother had lived the whole career in exact measurement. She gave her savings to her daughter and her daughter trusted them to someone who left. When she was finally told, she pressed Rs 5000 into Rekha's hand. That is also something a nurse knows how to do — where to put care when the damage is done.`,
+    note: `"Mummy ka toh poora career hi tha — ghar ghar jaana, bachche dekhna." Her mother's whole career was going house to house. Then her daughter did it too, without knowing.'`
   }
 
 };
