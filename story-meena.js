@@ -144,7 +144,7 @@ const story = {
 
   silai_work: {
     location: 'Rented room',
-    text: `She learned stitching by herself at home first - slowly, by doing. Then she went for formal training for three or four months. Just blouses. She stitches during her midday break from the cooking job. Savita, who is also in the room, holds up her blouse: <em>"Mere bhi sil dena ab aap."</em> Stitch mine too. Meena waves her off with a slight smile. She says: if she learns the full boutique work - kurtas, suits - she could take more work home. Neelima di nods.`,
+    text: `She learned stitching by herself at home first - slowly, by doing. Then she went for formal training for three or four months. Just blouses. She stitches during her midday break from the cooking job. Vandana, who is also in the room, holds up her blouse: <em>"Mere bhi sil dena ab aap."</em> Stitch mine too. Meena waves her off with a slight smile. She says: if she learns the full boutique work - kurtas, suits - she could take more work home. Neelima di nods.`,
     choices: [
       { text: 'Ask about her son who works after school.', next: 'raju_work' },
       { text: 'Ask about what she is planning next.', next: 'future_vision' }

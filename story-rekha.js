@@ -35,7 +35,7 @@ const story = {
 
   palna_ghar: {
     location: 'The home',
-    text: `From 2013 to 2017 she ran a daycare for the children of construction labourers. Through Sewa Mandir NGO. Twenty-five children. The youngest she received were three months old — their mothers dropped them at nine and collected them at four. She fed them, weighed their medicine in grams, played games, taught them. For Rs 100, Rs 200 a month — whatever the family could give. The NGO provided the ration and the equipment. She carried her own infant daughter to work in the early months. <em>"Apne bachche ko neeche utaar ke dusron ke bachchon ko god mein lena."</em> Setting your own child down to hold someone else's. She says it plainly, as a fact about what the work required.`,
+    text: `From 2013 to 2017 she ran a daycare for the children of construction labourers. Through a development NGO operating in the area.Twenty-five children. The youngest she received were three months old — their mothers dropped them at nine and collected them at four. She fed them, weighed their medicine in grams, played games, taught them. For Rs 100, Rs 200 a month — whatever the family could give. The NGO provided the ration and the equipment. She carried her own infant daughter to work in the early months. <em>"Apne bachche ko neeche utaar ke dusron ke bachchon ko god mein lena."</em> Setting your own child down to hold someone else's. She says it plainly, as a fact about what the work required.`,
     choices: [
       { text: 'Ask what twenty-five children in a single room looked like — how she managed.', next: 'children_25' },
       { text: 'Ask where this started — what made her want to do this kind of work.', next: 'how_started' }
@@ -44,16 +44,16 @@ const story = {
 
   how_started: {
     location: 'The home',
-    text: `It was not a calling so much as an opening. She was a housewife. Her husband had just been hired — Rs 2100 a month, barely enough for petrol. Joint family. Daily friction about dal and sabzi and who would buy vegetables. Her jethani was connected to Sewa Mandir NGO and they needed someone in the area. She said yes. The salary was Rs 7000. Her younger daughter was still an infant — she took her along every day. <em>"Roti rehti thi toh usko god mein le leti thi."</em> When stirring food she'd hold one child in the crook of her arm while the others played. Then the training came.`,
+    text: `It was not a calling so much as an opening. She was a housewife. Her husband had just been hired — Rs 2100 a month, barely enough for petrol. Joint family. Daily friction about dal and sabzi and who would buy vegetables. Her jethani was connected to the NGO and they needed someone in the area. She said yes. The salary was Rs 7000. Her younger daughter was still an infant — she took her along every day. <em>"Roti rehti thi toh usko god mein le leti thi."</em> When stirring food she'd hold one child in the crook of her arm while the others played. Then the training came.`,
     choices: [
-      { text: 'Ask about the training — she went to Savina for a week, in the monsoon.', next: 'training_rain' },
+      { text: 'Ask about the training — she went across the city for a week, in the monsoon.', next: 'training_rain' },
       { text: 'Ask what twenty-five children in one room looked like.', next: 'children_25' }
     ]
   },
 
   training_rain: {
     location: 'The home',
-    text: `Savina. A training center across the city, a week long. She went with her infant daughter — bag on one shoulder, baby on the other, umbrella in hand. Two autos to get there each way, in the monsoon. The center taught her gram weights: per child, per meal, everything measured precisely. She had always been weak at arithmetic. In meetings, when she couldn't get the calculations right, she wept. The supervisor, Renu Singh madam, said: how can such a small thing make you cry? She said it with kindness. <em>"Kyun nahi aa raha tumhe?"</em> Why can't you get it?`,
+    text: `A training center across the city, a week long. She went with her infant daughter — bag on one shoulder, baby on the other, umbrella in hand. Two autos to get there each way, in the monsoon. The center taught her gram weights: per child, per meal, everything measured precisely. She had always been weak at arithmetic. In meetings, when she couldn't get the calculations right, she wept. The supervisor said: how can such a small thing make you cry? She said it with kindness. <em>"Kyun nahi aa raha tumhe?"</em> Why can't you get it?`,
     choices: [
       { text: 'Ask what happened — whether she got the gram calculations eventually.', next: 'gram_calculations' },
       { text: 'Ask what the daycare itself looked like — the twenty-five children.', next: 'children_25' }
@@ -88,7 +88,7 @@ const story = {
 
   shg_200: {
     location: 'The home',
-    text: `After the daycare: she ran a self-help group. Two hundred members — women from the neighborhood and the nearby settlement. She linked them to a savings organization called Sarvodaya, run by a man in the area. For two, three years money moved — deposits, fixed deposits, interest. She put in four FDs herself, one lakh each. Her own money. <em>"Meri khud ki personal."</em> Four lakhs. The man worked beside them for nearly three years. January 2021. And then he was gone.`,
+    text: `After the daycare: she ran a self-help group. Two hundred members — women from the neighborhood and the nearby settlement. She linked them to a local savings organization, run by a man in the area. For two, three years money moved — deposits, fixed deposits, interest. She put in four FDs herself, one lakh each. Her own money. <em>"Meri khud ki personal."</em> Four lakhs. The man worked beside them for nearly three years. January 2021. And then he was gone.`,
     choices: [
       { text: 'Ask what "gone" looked like — how she found out.', next: 'sarvodaya_man' },
       { text: 'Ask what she did when the money did not come back.', next: 'fraud_day' }
@@ -161,13 +161,13 @@ const story = {
     text: `A young man from the neighborhood — troubled himself, prone to his own depressions — came one day with his mother to visit. He sat with her. He asked: aunty, how are you? She began to cry. He prayed for her. She says: <em>"Mujhe aisa laga ki meri sab tension door ho gayi."</em> As if it left. She does not say this as miracle. She says it as a fact about weight lifting. Then a woman named Sandhya — a Christian, a ration supplier — came and said: come with me, we'll do it together. I'll find you an order. The first orders out of the house. The first steps.`,
     choices: [
       { text: 'Ask about the ration contract — how the real work started again.', next: 'arth_ngo' },
-      { text: 'Ask about her mother — she mentioned her mother\'s retirement money was in the Sarvodaya deposits.', next: 'mummy_paisa' }
+      { text: 'Ask about her mother — she mentioned her mother\'s retirement money was in the savings organization deposits.', next: 'mummy_paisa' }
     ]
   },
 
   arth_ngo: {
     location: 'The home',
-    text: `Sandhya knew a doctor — a gynecologist, running an NGO hospital called Arth, Ahmedabad-based. He heard the story. He gave her a one-year contract: supply ration for the hospital. Rs 10,000 a month. <em>"Dheere-dheere dheere-dheere fir ek saal unke sang nikla."</em> Slowly, slowly, a year passed. Then his transfer came. She stayed — now attached to the parent NGO, Rudi Sewa, still supplying. She began going directly to the mandi for stock. She built contacts. She says: ab main khud koshish karti hoon. Now I try myself.`,
+    text: `Sandhya knew a doctor — a gynecologist running a small NGO hospital, based out of state. He heard the story. He gave her a one-year contract: supply ration for the hospital. Rs 10,000 a month. <em>"Dheere-dheere dheere-dheere fir ek saal unke sang nikla."</em> Slowly, slowly, a year passed. Then his transfer came. She stayed — now attached to the parent NGO, still supplying. She began going directly to the mandi for stock. She built contacts. She says: ab main khud koshish karti hoon. Now I try myself.`,
     choices: [
       { text: 'Ask about her mother — her retirement savings went into this too.', next: 'mummy_paisa' },
       { text: 'Ask about the conscience — the debt toward the two hundred members.', next: 'atma_gawahi' }
@@ -176,7 +176,7 @@ const story = {
 
   mummy_paisa: {
     location: 'The home',
-    text: `Her mother had retired from nursing — ANM, decades of work. Her retirement: sadhe teen lakh. Three and a half lakh rupees. She gave them to her daughter to deposit. Rekha put them in Sarvodaya FDs. When the man ran, this went too. For a year she did not visit her mother. Did not tell her. Her husband finally insisted. She went — stood in the doorway — and wept. She said: I lost your money. Her mother said: <em>"Tu khud ne jaan bujh ke toh kiya nahi."</em> You didn't do it on purpose. And then: repay what you can. Whenever. No hurry.`,
+    text: `Her mother had retired from nursing — ANM, decades of work. Her retirement: sadhe teen lakh. Three and a half lakh rupees. She gave them to her daughter to deposit. Rekha put them in the savings organization FDs. When the man ran, this went too. For a year she did not visit her mother. Did not tell her. Her husband finally insisted. She went — stood in the doorway — and wept. She said: I lost your money. Her mother said: <em>"Tu khud ne jaan bujh ke toh kiya nahi."</em> You didn't do it on purpose. And then: repay what you can. Whenever. No hurry.`,
     choices: [
       { text: 'Ask about the Rs 5000 her mother gave her on that visit — after losing everything.', next: 'end_sadhe_teen_lakh' },
       { text: 'Ask about the debt she still carries — the conscience that will not let her go.', next: 'atma_gawahi' }
